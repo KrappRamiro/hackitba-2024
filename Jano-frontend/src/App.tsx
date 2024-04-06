@@ -1,10 +1,15 @@
 
+import Layout from "./Layout";
 import Home from "./pages/Home";
 
 import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
+import Suenio from "./pages/Suenio";
+import Ejercicio from "./pages/Ejercicio";
+import Social from "./pages/Social";
+import Nutricion from "./pages/Nutricion";
 
 const router = createBrowserRouter([
   {
@@ -12,26 +17,28 @@ const router = createBrowserRouter([
     element: <Home />,
   },
   {
-    path: "/food",
-    element: <div>WIP: Food component!</div>,
+    path: "/nutricion",
+    element: <Nutricion />,
   },
   {
-    path: "/sleep",
-    element: <div>WIP: Sleep component!</div>,
+    path: "/suenio",
+    element: <Suenio />,
   },
   {
-    path: "/workout",
-    element: <div>WIP: Workout component!</div>,
+    path: "/ejercicio",
+    element: <Ejercicio />,
   },
   {
     path: "/social",
-    element: <div>WIP: Social component!</div>,
+    element: <Social />,
   },
 ]);
 
 export default function App() {
   return (
-    <RouterProvider router={router} />
+    <Layout>
+      <RouterProvider router={router} />
+    </Layout>
   )
 }
 
