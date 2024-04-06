@@ -1,11 +1,10 @@
 
-import Layout from "./Layout";
-import Home from "./pages/Home";
-
 import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
+import Layout from "./Layout";
+import Home from "./pages/Home";
 import Suenio from "./pages/Suenio";
 import Ejercicio from "./pages/Ejercicio";
 import Social from "./pages/Social";

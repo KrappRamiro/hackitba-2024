@@ -8,7 +8,7 @@ export default function Header() {
         <div className="grid grid-cols-5 h-12">
           <a
             className="flex flex-col items-center justify-center text-xs transition-colors duration-150 hover:text-gray-900"
-            href="/nutricion"
+            href={"/nutricion"}
           >
             <AppleIcon className="w-6 h-6" />
             
