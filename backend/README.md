@@ -1,4 +1,20 @@
-# Organización del Backend
+# backend
+
+## Cómo correr el backend
+
+### ¿Qué dependencias tiene?
+
+#### Corriendolo con Docker
+
+- Hace falta tener docker y docker-compose instalados.
+  Para desarrollarlo, se usaron Docker version 26.0.0, y docker-compose version v2.25.0
+
+#### Corriendolo de forma manual
+
+- Necesita tener una base de datos de mongoDB instanciada en el puerto 27017 (esto puede ser cambiado en `src/enviroments` a conveniencia, dependiendo del ambiente)
+- Necesita ser ejecutado con Node 20
+
+## Organización del Backend
 
 El backend se organiza de la siguiente forma
 
@@ -12,7 +28,6 @@ El backend se organiza de la siguiente forma
 │   ├── middlewares/ # Se encarga de los middlewares necesarios, como el CORS
 │   ├── models/ # Se encarga de definir los esquemas y modelos de datos de mongoose
 │   ├── routes/ # Se encarga de mapear las urls a un controller
-│   ├── enviroments/ # Aca estan los enviroments usados en desarrollo y produccion
 │   ├── run-server.ts # Corre el server
 │   └── swagger/ # En swagger se define la specificacion de OpenAPI usada por swagger
 │       ├── unaRouteAca/ # Se hace esta carpeta por cada route
@@ -30,6 +45,21 @@ Estas fueron documentadas en base a esta guía https://medium.com/@HargitaiSoma/
 Podes encontrar la documentación de las mismas levantando el servidor con `npm run dev` y yendo al endpoint `/docs`
 
 Tambien podes encontrar ejemplos de uso en ./requests.http
+
+## Como es la relación entre los archivos y carpetas del backend?
+
+```mermaid
+flowchart TD
+    node[node]
+    --> |ejecuta| run[run-server.js]
+    --> |corre| app(app.js)
+    --> |Delega el routeo a| rutas(routers de routes/)
+    --> |Delegan la Request y la Response a | controllers(controllers de controllers/)
+    --> |Interactuan con la base de datos con los| modelos(esquemas y modelos de models/)
+
+    app --> |usa| enviroments(ENV variables de environments/)
+    app --> |usa| middlware(middlewares de middlewares/)
+```
 
 ## Como son manejados los enviroments
 
@@ -49,17 +79,4 @@ Los levanta src/app.ts usando dotenv. El ambiente que se setee depende de cross-
 	},
 ```
 
-## Como es la relación entre los archivos y carpetas del backend?
-
-```mermaid
-flowchart TD
-    node[node]
-    --> |ejecuta| run[run-server.js]
-    --> |corre| app(app.js)
-    --> |Delega el routeo a| rutas(routers de routes/)
-    --> |Delegan la Request y la Response a | controllers(controllers de controllers/)
-    --> |Interactuan con la base de datos con los| modelos(esquemas y modelos de models/)
-
-    app --> |usa| enviroments(ENV variables de environments/)
-    app --> |usa| middlware(middlewares de middlewares/)
-```
+Para manejar credenciales y secrets, se deberian usar **los secrets de docker compose** https://docs.docker.com/compose/use-secrets/

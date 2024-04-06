@@ -3,18 +3,17 @@ services:
     image: mongodb/mongodb-community-server:latest
     container_name: mongodb
     ports:
-      - "27017:27017"
+      - "${DATABASE_PORT}:${DATABASE_PORT}"
 
   express:
     image: hackitba-2024-backend
     container_name: backend
-    links:
-      - mongodb
-
     build:
       context: ./backend
       dockerfile: Dockerfile
     ports:
-      - "3000:3000"
+      - "${EXPRESS_PORT}:${EXPRESS_PORT}"
+    environment:
+      - NODE_ENV=production
     depends_on:
       - mongodb

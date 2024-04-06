@@ -17,12 +17,10 @@ import mongoose from "mongoose";
 //* -------- Initial bootstrapping ------------ //
 
 dotenv.config({ path: `src/environments/.env.${process.env.NODE_ENV || "development"}` });
-if (!process.env.DATABASE_URL) {
-	throw new Error(
-		"Enviroment variable process.env.DATABASE_URL should be defined in src/enviroments/, either in .env.development, or .env.production, depending on the enviroment you are using"
-	);
-}
-mongoose.connect(process.env.DATABASE_URL + process.env.DATABASE_NAME);
+console.info(`Running in ${process.env.NODE_ENV}`);
+
+const connStr = `${process.env.DATABASE_URL}:${process.env.DATABASE_PORT}/${process.env.DATABASE_NAME}`;
+mongoose.connect(connStr);
 const database = mongoose.connection;
 
 database.on("error", (error: any) => {
