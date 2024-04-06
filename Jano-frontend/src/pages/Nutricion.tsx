@@ -1,4 +1,3 @@
-import Header from "../components/Header"
 import FoodHeading from "../components/FoodHeading";
 import DailyFoodCard from "../components/DailyFoodCard";
 
@@ -11,7 +10,7 @@ export default function Nutricion() {
         <FoodHeading />
         <DailyFoodCard foodInfo = {getDailyFoodCardDefinition()} />
       </div>
-      <Header />
+      
     </div>
   );
 }
