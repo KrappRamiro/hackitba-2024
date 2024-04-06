@@ -28,10 +28,10 @@ export default function TrackerModule({ tracker }: TrackerModuleProps) {
 				<div className="border-2 border-black px-5 py-4 rounded-2xl bg-green-100 mb-8">
 					<div className="flex justify-between mb-3">
 						<div className="font-semibold text-gray-600 rounded-full bg-lime-500 p-2">
-							{tracker?.fields[0]}
+							{/* {tracker?.fields[0]} */}
 						</div>
-						<p className="text-black">{tracker?.fields[1]}</p>
-					<AddCircleOutlineIcon className="text-lime-500 "/>
+						{/* <p className="text-black">{tracker?.fields[1]}</p> */}
+					{/* <AddCircleOutlineIcon className="text-lime-500 "/> */}
 					</div>
 				</div>
 			</div>
