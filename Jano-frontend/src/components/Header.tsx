@@ -1,44 +1,42 @@
-// create a header
 
-import React from 'react';
 import { SVGProps } from 'react';
 import { JSX } from 'react/jsx-runtime';
 
 export default function Header() {
   return (
-    <div className="border-t-2">
+    <div className="">
         <div className="grid grid-cols-5 h-12">
           <a
             className="flex flex-col items-center justify-center text-xs transition-colors duration-150 hover:text-gray-900"
-            href="#"
+            href={"/nutricion"}
           >
             <AppleIcon className="w-6 h-6" />
             
           </a>
           <a
             className="flex flex-col items-center justify-center text-xs transition-colors duration-150 hover:text-gray-900"
-            href="#"
+            href="/suenio"
           >
             <MoonStarIcon className="w-6 h-6" />
             
           </a>
           <a
-            className="flex flex-col items-center justify-center text-2xl font-light transition-colors duration-150 hover:text-gray-900"
-            href="#"
+            className="flex flex-col items-center justify-center text-2xl font-light transition-colors duration-150 hover:text-gray-900 rounded-full bg-gray-100 dark:bg-gray-800 dark:text-gray-100 overflow-visible"
+            href="/"
           >
             
-            <MessagesSquareIcon className="w-6 h-6" />
+            <MessagesSquareIcon className="w-6 h-6 " />
           </a>
           <a
             className="flex flex-col items-center justify-center text-xs transition-colors duration-150 hover:text-gray-900"
-            href="#"
+            href="/ejercicio"
           >
             <DumbbellIcon className="w-6 h-6" />
             
           </a>
           <a
             className="flex flex-col items-center justify-center text-xs transition-colors duration-150 hover:text-gray-900"
-            href="#"
+            href="/social"
           >
             <UsersIcon className="w-6 h-6" />
             
