@@ -1,6 +1,7 @@
 import { SVGProps } from "react"
 import { JSX } from "react/jsx-runtime"
 import Home from "./pages/Home";
+import Food from "./pages/Food";
 
 import {
   createBrowserRouter,
@@ -14,7 +15,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/food",
-    element: <div>WIP: Food component!</div>,
+    element: <Food />,
   },
   {
     path: "/sleep",

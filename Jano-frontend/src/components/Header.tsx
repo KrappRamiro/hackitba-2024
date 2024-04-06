@@ -1,6 +1,6 @@
 // create a header
 
-import React from 'react';
+import { Link } from 'react-router-dom';
 import { SVGProps } from 'react';
 import { JSX } from 'react/jsx-runtime';
 
@@ -8,13 +8,13 @@ export default function Header() {
   return (
     <div className="border-t-2">
         <div className="grid grid-cols-5 h-12">
-          <a
+          <Link
             className="flex flex-col items-center justify-center text-xs transition-colors duration-150 hover:text-gray-900"
-            href="#"
+            to="/food"
           >
             <AppleIcon className="w-6 h-6" />
             
-          </a>
+          </Link>
           <a
             className="flex flex-col items-center justify-center text-xs transition-colors duration-150 hover:text-gray-900"
             href="#"
