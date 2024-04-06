@@ -1,71 +1,32 @@
-import { SVGProps } from "react"
-import { JSX } from "react/jsx-runtime"
+// create a header
 
-export default function Home() {
-    return (
-    <div className="grid h-screen w-full max-w-sm mx-auto rounded-t-xl border-t-2 border-gray-100/40 bg-white shadow-2xl overflow-hidden dark:border-gray-950 dark:bg-gray-950/60">
-      <div className="flex h-14 items-center px-4 border-b dark:border-gray-800">
-        <div className="font-bold text-lg">Chatbot</div>
-        <button className="ml-auto w-8 h-8 rounded-full"  >
-          <XIcon className="w-4 h-4" />
-          <span className="sr-only">Toggle menu</span>
-        </button>
-      </div>
-      <div className="flex-1 grid gap-4 p-4">
-        <div className="flex items-start gap-2">
-          <img
-            alt="User"
-            className="rounded-full"
-            height="40"
-            src="/placeholder.svg"
-            style={{
-              aspectRatio: "40/40",
-              objectFit: "cover",
-            }}
-            width="40"
-          />
-          <div className="grid gap-1 p-2 bg-gray-100 rounded-lg text-sm dark:bg-gray-800">
-            Hi there! How can I help you today?
-          </div>
-        </div>
-        <div className="flex items-end gap-2 justify-end">
-          <div className="grid gap-1 p-2 bg-gray-100 rounded-lg text-sm dark:bg-gray-800">
-            You have a great day too!
-          </div>
-          <img
-            alt="User"
-            className="rounded-full"
-            height="40"
-            src="/placeholder.svg"
-            style={{
-              aspectRatio: "40/40",
-              objectFit: "cover",
-            }}
-            width="40"
-          />
-        </div>
-      </div>
-      <div className="border-t-2">
+import React from 'react';
+import { SVGProps } from 'react';
+import { JSX } from 'react/jsx-runtime';
+
+export default function Header() {
+  return (
+    <div className="border-t-2">
         <div className="grid grid-cols-5 h-12">
           <a
             className="flex flex-col items-center justify-center text-xs transition-colors duration-150 hover:text-gray-900"
             href="#"
           >
             <AppleIcon className="w-6 h-6" />
-            Nutrition
+            
           </a>
           <a
             className="flex flex-col items-center justify-center text-xs transition-colors duration-150 hover:text-gray-900"
             href="#"
           >
             <MoonStarIcon className="w-6 h-6" />
-            Sleep
+            
           </a>
           <a
             className="flex flex-col items-center justify-center text-2xl font-light transition-colors duration-150 hover:text-gray-900"
             href="#"
           >
-            Chat
+            
             <MessagesSquareIcon className="w-6 h-6" />
           </a>
           <a
@@ -73,21 +34,19 @@ export default function Home() {
             href="#"
           >
             <DumbbellIcon className="w-6 h-6" />
-            Workout
+            
           </a>
           <a
             className="flex flex-col items-center justify-center text-xs transition-colors duration-150 hover:text-gray-900"
             href="#"
           >
             <UsersIcon className="w-6 h-6" />
-            Social
+            
           </a>
         </div>
       </div>
-    </div>
-    )
+  );
 }
-
 function AppleIcon(props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>) {
     return (
       <svg
@@ -201,23 +160,5 @@ function AppleIcon(props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>) {
   }
   
   
-  function XIcon(props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>) {
-    return (
-      <svg
-        {...props}
-        xmlns="http://www.w3.org/2000/svg"
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      >
-        <path d="M18 6 6 18" />
-        <path d="m6 6 12 12" />
-      </svg>
-    )
-  }
+  
   
