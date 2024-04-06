@@ -4,9 +4,12 @@ export default function SleepTracker() {
 	const [sleepTime, setSleepTime] = useState(null);
 
 	useEffect(() => {
-		fetch("http://localhost:8080/sleeps/609d91d9e2d6d41768a092d8")
+		fetch("http://localhost:3000/sleeps/609d91d9e2d6d41768a092d8")
 			.then((response) => response.json())
-			.then((data) => setSleepTime(data.sleepTime)) // assuming the response has a sleepTime property
+			.then((data) => {
+				console.log(data)
+				setSleepTime(data[0].dailySleepHours)})
+			 
 			.catch((error) => console.error("Error:", error));
 	}, []);
     

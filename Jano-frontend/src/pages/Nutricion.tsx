@@ -6,7 +6,7 @@ import "./Food.css"
 
 export default function Nutricion() {
   
-  const [open, setOpen] = useState(false)
+  const [open, setOpen] = useState(true)
 
   const [selectedAbundance, setSelectedAbundance] = useState([])
 
