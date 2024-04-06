@@ -25,7 +25,7 @@ El backend se organiza de la siguiente forma
 
 ## Las rutas
 
-Estas fueron documentadas con https://medium.com/@HargitaiSoma/how-you-should-have-started-to-add-swagger-to-your-express-api-672a6b0a6680
+Estas fueron documentadas en base a esta guía https://medium.com/@HargitaiSoma/how-you-should-have-started-to-add-swagger-to-your-express-api-672a6b0a6680
 
 Podes encontrar la documentación de las mismas levantando el servidor con `npm run dev` y yendo al endpoint `/docs`
 
@@ -51,6 +51,15 @@ Los levanta src/app.ts usando dotenv. El ambiente que se setee depende de cross-
 
 ## Como es la relación entre los archivos y carpetas del backend?
 
-```
+```mermaid
+flowchart TD
+    node[node]
+    --> |ejecuta| run[run-server.js]
+    --> |corre| app(app.js)
+    --> |Delega el routeo a| rutas(routers de routes/)
+    --> |Delegan la Request y la Response a | controllers(controllers de controllers/)
+    --> |Interactuan con la base de datos con los| modelos(esquemas y modelos de models/)
 
+    app --> |usa| enviroments(ENV variables de environments/)
+    app --> |usa| middlware(middlewares de middlewares/)
 ```
