@@ -14,7 +14,15 @@ import pkgJson from "../package.json";
 import swaggerDoc from "./swagger/openapi.js";
 import mongoose from "mongoose";
 
-mongoose.connect("mongodb://mongodb:27017/test");
+//* -------- Initial bootstrapping ------------ //
+
+dotenv.config({ path: `src/environments/.env.${process.env.NODE_ENV || "development"}` });
+if (!process.env.DATABASE_URL) {
+	throw new Error(
+		"Enviroment variable process.env.DATABASE_URL should be defined in src/enviroments/, either in .env.development, or .env.production, depending on the enviroment you are using"
+	);
+}
+mongoose.connect(process.env.DATABASE_URL + process.env.DATABASE_NAME);
 const database = mongoose.connection;
 
 database.on("error", (error: any) => {
@@ -27,12 +35,11 @@ database.once("connected", () => {
 
 const app: Express = express();
 
-//* -------- Initial bootstrapping ------------ //
-dotenv.config();
 app.use(json());
 app.use(corsMiddleware());
 
 //* --------- Swagger configuration ---------- //
+// TODO: Update swagger docs
 // Automatically set swaggerdoc version based on package.json
 swaggerDoc.info.version = pkgJson.version;
 swaggerDoc.info.description = pkgJson.description;
