@@ -18,9 +18,13 @@ import workoutTags from "./workout/tags";
 import emergencyLinesRoutes from "./emergencyLines/routes";
 import emergencyLinesTags from "./emergencyLines/tags";
 
-// forums
+// forum
 import forumRoutes from "./forum/routes";
 import forumTags from "./forum/tags";
+
+// user
+import userRoutes from "./user/routes";
+import userTags from "./user/tags";
 
 export default {
 	openapi: "3.0.0",
@@ -42,6 +46,7 @@ export default {
 		workoutTags,
 		emergencyLinesTags,
 		forumTags,
+		userTags,
 	},
 	paths: {
 		...healthcheckRoutes,
@@ -50,5 +55,6 @@ export default {
 		...workoutRoutes,
 		...emergencyLinesRoutes,
 		...forumRoutes,
+		...userRoutes,
 	},
 };
