@@ -1,5 +1,4 @@
-import { SVGProps } from "react"
-import { JSX } from "react/jsx-runtime"
+
 import Home from "./pages/Home";
 
 import {
@@ -35,4 +34,5 @@ export default function App() {
     <RouterProvider router={router} />
   )
 }
+
 
