@@ -4,13 +4,13 @@
 	"description": "Repositorio usado para la Hackaton organizada por el computing club de la ITBA en 2024",
 	"main": "index.js",
 	"scripts": {
-		"build": "npx tsc",
-		"start": "node dist/run-server.js",
-		"dev": "tsx watch ./src/run-server.ts",
-		"test": "jest --verbose --detectOpenHandles"
+		"build": "cross-env NODE_ENV=production npx tsc",
+		"start": "cross-env NODE_ENV=production node dist/run-server.js",
+		"dev": "cross-env NODE_ENV=development tsx watch ./src/run-server.ts"
 	},
 	"dependencies": {
 		"cors": "^2.8.5",
+		"cross-env": "^7.0.3",
 		"dotenv": "^16.4.5",
 		"express": "^4.19.2",
 		"mongoose": "^8.3.0",
@@ -26,6 +26,6 @@
 		"typescript": "^5.4.4"
 	},
 	"keywords": [],
-	"author": "",
-	"license": "ISC"
+	"author": "Krapp Ramiro",
+	"license": "MIT"
 }

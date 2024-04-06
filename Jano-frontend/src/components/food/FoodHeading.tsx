@@ -3,7 +3,7 @@ export default function FoodHeading() {
         <div className="max-w-sm rounded overflow-hidden shadow-lg">
         <div className="px-6 py-4">
           <div className="flex flex-row gap-x-1">
-            <div className="font-bold text-xl mb-2">Nutrition</div>
+            <div className="font-bold text-xl mb-2">Nutrición</div>
             <button className="">
               <box-icon type='solid' name='info-circle' color="white"></box-icon>
             </button>
