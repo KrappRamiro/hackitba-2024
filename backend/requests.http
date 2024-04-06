@@ -101,3 +101,14 @@ GET http://localhost:3000/forums
 
 ### Get a forum
 GET http://localhost:3000/forums/66112820fe58eff5dbc519ea
+
+
+## CHATBOT
+
+### Get assistant
+POST http://localhost:3000/chatbot/ask
+Content-Type: application/json
+
+{
+    "message": "me quiero matar!"
+}
