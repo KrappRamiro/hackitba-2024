@@ -1,76 +1,82 @@
-import { SVGProps, useState } from "react";
-import { JSX } from "react/jsx-runtime";
+import { useState } from "react";
 
 export default function Home() {
-  const [message, setMessage] = useState("");
-  const [conversation, setConversation] = useState<
-    { user: string; text: string }[]
-  >([
-    {
-      user: "AI",
-      text: "I'm an AI, I don't have feelings, but I'm functioning as expected. How can I assist you today?",
-    },
-  ]);
+	const [message, setMessage] = useState("");
+	const [conversation, setConversation] = useState<{ user: string; text: string }[]>([
+		{
+			user: "AI",
+			text: "Soy una IA, no tengo sentimientos, pero estoy funcionando como se espera. ¿En qué puedo ayudarte hoy?",
+		},
+	]);
+	const sendMessage = () => {
+		if (message.trim() !== "") {
+			const updatedConversation = [...conversation];
 
-  const sendMessage = async () => {
-    //const response = await axios.post("/api/chat", { prompt: message });
+			updatedConversation.push({ user: "You", text: message });
 
-    setConversation([
-      ...conversation,
-      { user: "You", text: message },
-      { user: "AI", text: "response.data" },
-    ]);
-    setMessage("");
-  };
+			const randomResponse = getRandomResponse();
 
-  return (
-    <div className="flex flex-col justify-end">
-      <div className="flex p-4 overflow-auto">
-        {conversation.map((message, index) => (
-          <p key={index}>
-            <strong>{message.user}:</strong> {message.text}
-          </p>
-        ))}
-      </div>
+			updatedConversation.push({ user: "AI", text: randomResponse });
 
-      <div className="flex flex-col justify-end p-4 ">
-        <div className="flex ">
-          <input
-            className="rounded-full pl-3 border-gray-200 dark:border-gray-800 flex-1 mr-2"
-            placeholder="Que tienes en mente?"
-            type="text"
-            value={message}
-            onChange={(e) => setMessage(e.target.value)}
-          />
-          <button
-            className="h-[3rem] w-[3rem] rounded-full ml-auto"
-            onClick={sendMessage}
-          >
-            <SendIcon className="h-6 w-6" />
-            <span className="sr-only">Send</span>
-          </button>
-        </div>
-      </div>
-    </div>
-  );
-}
+			setConversation(updatedConversation);
 
-function SendIcon(props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>) {
-  return (
-    <svg
-      {...props}
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <path d="m22 2-7 20-4-9-9-4Z" />
-      <path d="M22 2 11 13" />
-    </svg>
-  );
+			setMessage("");
+		}
+	};
+
+	const getRandomResponse = () => {
+		const responses = [
+			"Entendido. ¿Hay algo más en lo que pueda ayudarte?",
+			"¡Claro! ¿Qué más necesitas?",
+			"Hmm, eso es interesante. Permíteme buscar más información al respecto.",
+		];
+		const randomIndex = Math.floor(Math.random() * responses.length);
+		return responses[randomIndex];
+	};
+
+	const handleKeyDown = (event) => {
+		if (event.key === "Enter") {
+			sendMessage();
+		}
+	};
+
+	return (
+		<div className="flex flex-col justify-end">
+			<div className="flex p-4 overflow-auto flex-col-reverse" style={{ maxWidth: "80vw" }}>
+				{conversation
+					.map((message, index) => (
+						<div key={index} className={`flex ${message.user === "You" ? "justify-end" : "justify-start"} mb-2`}>
+							<div
+								className={`rounded-lg p-3 ${
+									message.user === "You" ? "bg-blue-500 text-white" : "bg-gray-200 text-gray-700"
+								} max-w-[200px] break-words`}
+							>
+								{message.text}
+							</div>
+						</div>
+					))
+					.reverse()}{" "}
+			</div>
+
+			<div className="flex flex-col justify-end p-4">
+				<div className="flex ">
+					<input
+						className="rounded-full pl-3 border-gray-200 dark:border-gray-800 flex-1 mr-2"
+						placeholder="¿Qué tienes en mente?"
+						type="text"
+						value={message}
+						onChange={(e) => setMessage(e.target.value)}
+						onKeyDown={handleKeyDown}
+					/>
+					<button
+						className="h-[3rem] w-[3rem] rounded-full ml-auto bg-blue-500 text-white flex items-center justify-center"
+						onClick={sendMessage}
+					>
+						<box-icon name="send" color="#ffffff" size="md" />
+						<span className="sr-only">Enviar</span>
+					</button>
+				</div>
+			</div>
+		</div>
+	);
 }
