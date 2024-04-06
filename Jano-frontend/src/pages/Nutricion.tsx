@@ -1,5 +1,5 @@
-import FoodHeading from "../components/FoodHeading";
-import DailyFoodCard from "../components/DailyFoodCard";
+import FoodHeading from "../components/food/FoodHeading";
+import DailyFoodCard from "../components/food/DailyFoodCard";
 
 import "./Food.css"
 

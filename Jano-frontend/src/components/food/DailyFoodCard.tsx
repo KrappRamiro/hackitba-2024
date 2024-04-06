@@ -1,4 +1,4 @@
-import FileUpload from "./FileUpload"
+import DailyFoodUpload from "./DailyFoodUpload";
 
 export default function DailyFoodCard({ foodInfo }: any) {
     
@@ -7,7 +7,7 @@ export default function DailyFoodCard({ foodInfo }: any) {
 
     // Create an array of h1 elements based on foodQuantity
     const foodItems = uploadConfigs.map((uploadConfig, index) => 
-        <FileUpload key={index+"foodImage"} fileUploadProperties={uploadConfig}></FileUpload>
+        <DailyFoodUpload key={index+"foodImage"} foodInfo={uploadConfig}></DailyFoodUpload>
     );
 
     return (

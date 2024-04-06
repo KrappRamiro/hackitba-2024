@@ -1,0 +1,103 @@
+
+### Add alimentation
+POST http://localhost:3000/alimentations
+Content-Type: application/json
+
+{
+    "userId": "609d91d9e2d6d41768a092d8",
+    "date": "2024-04-06",
+    "mealsAmount": 3,
+    "foodAmountFeeling": "not enough food"
+}
+
+### Get the alimentations from a user
+GET http://localhost:3000/alimentations/609d91d9e2d6d41768a092d8
+
+
+### Add sleep
+POST http://localhost:3000/sleeps
+Content-Type: application/json
+
+{
+    "userId": "609d91d9e2d6d41768a092d8",
+    "date": "2024-04-06",
+    "dailySleepHours": 6,
+    "interruptionLevel": "a few times",
+    "userFeelsDisorder": false
+}
+
+### Get the sleeps from a user
+GET http://localhost:3000/sleeps/609d91d9e2d6d41768a092d8
+
+
+### Add workout
+POST http://localhost:3000/workouts
+Content-Type: application/json
+
+{
+    "userId": "609d91d9e2d6d41768a092d8",
+    "date": "2024-04-06",
+    "exercises": {
+        "running": "5 miles",
+        "yoga": "30 minutes",
+        "weightlifting": "3 sets of squats"
+    }
+}
+
+### Get the workouts from a user
+GET http://localhost:3000/workouts/609d91d9e2d6d41768a092d8
+
+
+### Add a user
+POST http://localhost:3000/users
+Content-Type: application/json
+
+{
+    "username": "dantezulli",
+    "email": "dantezulli@email.com",
+    "password": "1234"
+}
+
+### Add another user
+POST http://localhost:3000/users
+Content-Type: application/json
+
+{
+    "username": "ramirokrapp",
+    "email": "krappramii@email.com",
+    "password": "1asadndsankas"
+}
+
+### Get all users
+GET http://localhost:3000/users
+
+### Get a user
+GET http://localhost:3000/users/66112446dd4a6e87045ba6b5
+
+### Add a forum
+POST http://localhost:3000/forums
+Content-Type: application/json
+
+{
+    "title": "Sample Forum Title",
+    "description": "Description of the forum",
+    "topic": "Sample Topic",
+    "tags": ["tag1", "tag2", "tag3"],
+    "comments": [
+        {
+            "user": "username1",
+            "content": "Comment content 1"
+        },
+        {
+            "user": "username2",
+            "content": "Comment content 2"
+        }
+    ]
+}
+
+
+### Get all forums
+GET http://localhost:3000/forums
+
+### Get a forum
+GET http://localhost:3000/forums/66112820fe58eff5dbc519ea
