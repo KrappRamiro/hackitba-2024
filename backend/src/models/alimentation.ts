@@ -1,20 +1,20 @@
 import mongoose, { Document, Schema, Types } from "mongoose";
 
-interface Alimentation extends Document {
+export interface AlimentationDocument extends Document {
 	userId: Types.ObjectId;
 	date: Date;
 	mealsAmount: number;
 	foodAmountFeeling: "not enough food" | "enough food" | "too much food";
 }
 
-const alimentationSchema: Schema<Alimentation> = new Schema({
+const alimentationSchema: Schema<AlimentationDocument> = new Schema({
 	userId: {
 		type: Schema.Types.ObjectId,
 		required: true,
 	},
 	date: {
 		type: Date,
-		required: true,
+		default: Date.now,
 	},
 	mealsAmount: {
 		type: Number,
@@ -27,6 +27,6 @@ const alimentationSchema: Schema<Alimentation> = new Schema({
 	},
 });
 
-const AlimentationModel = mongoose.model<Alimentation>("Alimentation", alimentationSchema);
+const AlimentationModel = mongoose.model<AlimentationDocument>("Alimentation", alimentationSchema);
 
 export default AlimentationModel;

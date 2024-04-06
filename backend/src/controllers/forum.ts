@@ -13,7 +13,7 @@ export const addForum = async (req: Request, res: Response) => {
 
 export const getAllForums = async (req: Request, res: Response) => {
 	try {
-		const forums = await forumModel.find();
+		const forums = await forumModel.find().sort({ date: -1 });
 		res.status(200).json(forums);
 	} catch (error) {
 		res.status(500).json(error);
