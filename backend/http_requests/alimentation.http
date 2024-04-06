@@ -1,0 +1,11 @@
+
+### Add alimentation
+POST http://localhost:3000/alimentations
+Content-Type: application/json
+
+{
+    "userId": 123123132,
+    "date": "2024-04-06",
+    "mealsAmount": 3,
+    "foodAmountFeeling": "not enough food"
+}
