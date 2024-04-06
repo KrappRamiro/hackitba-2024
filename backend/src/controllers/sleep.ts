@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import sleepModel from "../models/sleep";
+import sleepModel, { SleepDocument } from "../models/sleep";
 
 export const addSleep = async (req: Request, res: Response) => {
 	try {
@@ -14,7 +14,17 @@ export const addSleep = async (req: Request, res: Response) => {
 export const getSleepsByUserId = async (req: Request, res: Response) => {
 	try {
 		const { userId } = req.params;
-		const sleepData = await sleepModel.find({ userId });
+		const { last } = req.query;
+
+		let sleepData: SleepDocument | SleepDocument[] | null;
+
+		if (last === "true") {
+			// Find the last sleep data for the user
+			sleepData = await sleepModel.findOne({ userId }).sort({ date: -1 });
+		} else {
+			// Find all sleep data for the user
+			sleepData = await sleepModel.find({ userId });
+		}
 		if (sleepData) {
 			res.status(200).json(sleepData);
 		} else {

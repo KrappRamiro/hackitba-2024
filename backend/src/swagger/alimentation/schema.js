@@ -1,10 +1,11 @@
 export default {
 	type: "object",
+	required: ["userId", "date", "mealsAmount", "foodAmountFeeling"],
 	properties: {
 		userId: {
-			type: "integer",
-			format: "int64",
-			example: 1283198231782,
+			type: "string",
+			format: "ObjectId",
+			example: "609d91d9e2d6d41768a092d8",
 		},
 		date: {
 			type: "string",
@@ -18,7 +19,7 @@ export default {
 		},
 		foodAmountFeeling: {
 			type: "string",
-			description: "How did the user feel about it's ration size?",
+			description: "How did the user feel about its ration size?",
 			example: "too much food",
 			enum: ["not enough food", "enough food", "too much food"],
 		},

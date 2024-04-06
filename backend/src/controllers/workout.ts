@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import workoutModel from "../models/workout";
+import workoutModel, { WorkoutDocument } from "../models/workout";
 
 export const addWorkout = async (req: Request, res: Response) => {
 	try {
@@ -14,7 +14,17 @@ export const addWorkout = async (req: Request, res: Response) => {
 export const getWorkoutsByUserId = async (req: Request, res: Response) => {
 	try {
 		const { userId } = req.params;
-		const workoutData = await workoutModel.find({ userId });
+		const { last } = req.query;
+		let workoutData: WorkoutDocument | WorkoutDocument[] | null;
+
+		if (last === "true") {
+			// Find the last workout data for the user
+			workoutData = await workoutModel.findOne({ userId }).sort({ createdAt: -1 });
+		} else {
+			// Find all workout data for the user
+			workoutData = await workoutModel.find({ userId });
+		}
+
 		if (workoutData) {
 			res.status(200).json(workoutData);
 		} else {

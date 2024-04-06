@@ -1,10 +1,11 @@
 export default {
 	type: "object",
+	required: ["date", "exercises"],
 	properties: {
 		userId: {
-			type: "integer",
-			format: "int64",
-			example: 1283198231782,
+			type: "string",
+			format: "ObjectId",
+			example: "609d91d9e2d6d41768a092d8",
 		},
 		date: {
 			type: "string",

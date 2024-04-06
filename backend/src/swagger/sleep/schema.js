@@ -1,17 +1,18 @@
 export default {
 	type: "object",
+	required: ["date", "dailySleepHours", "interruptionLevel", "userFeelsDisorder"],
 	properties: {
 		userId: {
-			type: "integer",
-			format: "int64",
-			example: 1283198231782,
+			type: "string",
+			format: "ObjectId",
+			example: "609d91d9e2d6d41768a092d8",
 		},
 		date: {
 			type: "string",
 			format: "date",
 		},
 		dailySleepHours: {
-			type: "float",
+			type: "number",
 			description: "Amount of hours the user slept that day",
 			example: 8,
 		},
@@ -23,7 +24,7 @@ export default {
 		},
 		userFeelsDisorder: {
 			type: "boolean",
-			description: "is the user feeling that they have a sleep disorder",
+			description: "Is the user feeling that they have a sleep disorder",
 			example: false,
 		},
 	},

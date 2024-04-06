@@ -1,6 +1,6 @@
 import mongoose, { Document, Schema, Types } from "mongoose";
 
-interface Sleep extends Document {
+export interface SleepDocument extends Document {
 	userId: Types.ObjectId;
 	date: Date;
 	dailySleepHours: number;
@@ -8,14 +8,14 @@ interface Sleep extends Document {
 	userFeelsDisorder: boolean;
 }
 
-const sleepSchema: Schema<Sleep> = new Schema({
+const sleepSchema: Schema<SleepDocument> = new Schema({
 	userId: {
 		type: Schema.Types.ObjectId,
 		required: true,
 	},
 	date: {
 		type: Date,
-		required: true,
+		default: Date.now,
 	},
 	dailySleepHours: {
 		type: Number,
@@ -32,6 +32,6 @@ const sleepSchema: Schema<Sleep> = new Schema({
 	},
 });
 
-const SleepModel = mongoose.model<Sleep>("Sleep", sleepSchema);
+const SleepModel = mongoose.model<SleepDocument>("Sleep", sleepSchema);
 
 export default SleepModel;

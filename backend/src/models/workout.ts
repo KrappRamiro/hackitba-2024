@@ -1,19 +1,19 @@
 import mongoose, { Document, Schema, Types } from "mongoose";
 
-interface Workout extends Document {
+export interface WorkoutDocument extends Document {
 	userId: Types.ObjectId;
 	date: Date;
 	exercises: Record<string, string>;
 }
 
-const workoutSchema: Schema<Workout> = new Schema({
+const workoutSchema: Schema<WorkoutDocument> = new Schema({
 	userId: {
 		type: Schema.Types.ObjectId,
 		required: true,
 	},
 	date: {
 		type: Date,
-		required: true,
+		default: Date.now,
 	},
 	exercises: {
 		type: Map,
@@ -22,6 +22,6 @@ const workoutSchema: Schema<Workout> = new Schema({
 	},
 });
 
-const WorkoutModel = mongoose.model<Workout>("Workout", workoutSchema);
+const WorkoutModel = mongoose.model<WorkoutDocument>("Workout", workoutSchema);
 
 export default WorkoutModel;

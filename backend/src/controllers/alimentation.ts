@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import alimentationModel from "../models/alimentation";
+import alimentationModel, { AlimentationDocument } from "../models/alimentation";
 
 export const addAlimentation = async (req: Request, res: Response) => {
 	try {
@@ -14,7 +14,18 @@ export const addAlimentation = async (req: Request, res: Response) => {
 export const getAlimentationsByUserId = async (req: Request, res: Response) => {
 	try {
 		const { userId } = req.params;
-		const alimentationData = await alimentationModel.find({ userId });
+		const { last } = req.query;
+
+		let alimentationData: AlimentationDocument | AlimentationDocument[] | null;
+
+		if (last === "true") {
+			// Find the last alimentation data for the user
+			alimentationData = await alimentationModel.findOne({ userId }).sort({ createdAt: -1 });
+		} else {
+			// Find all alimentation data for the user
+			alimentationData = await alimentationModel.find({ userId });
+		}
+
 		if (alimentationData) {
 			res.status(200).json(alimentationData);
 		} else {
