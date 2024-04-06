@@ -1,5 +1,7 @@
 import healthcheckRoutes from "./healthcheck/routes";
 import healthcheckTags from "./healthcheck/tags";
+import alimentationRoutes from "./alimentation/routes";
+import alimentationTags from "./alimentation/tags";
 
 export default {
 	openapi: "3.0.0",
@@ -16,8 +18,10 @@ export default {
 	],
 	tags: {
 		healthcheckTags,
+		alimentationTags,
 	},
 	paths: {
-		"/healthcheck": healthcheckRoutes,
+		...healthcheckRoutes,
+		...alimentationRoutes,
 	},
 };

@@ -35,4 +35,11 @@ Estas fueron documentadas con https://medium.com/@HargitaiSoma/how-you-should-ha
 
 ### alimentations
 
+The alimentation endpoint is responsable for storing and retrieving the user alimentation data.
+
+Said data is:
+
+- How many times a day the user ate?
+- How did the user feel about it's ration size?
+
 ###
