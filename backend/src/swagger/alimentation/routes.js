@@ -8,7 +8,7 @@ export default {
 			summary: "Add an alimentation data.",
 			description: "Add an alimentation data for a user",
 			requestBody: {
-				description: "Create a new pet in the store",
+				description: "The alimentation data",
 				content: {
 					"application/json": {
 						schema: alimentationSchema,
@@ -38,6 +38,11 @@ export default {
 			responses: {
 				200: {
 					description: "OK",
+					content: {
+						"application/json": {
+							schema: alimentationSchema,
+						},
+					},
 				},
 				400: {
 					description: "bad request",

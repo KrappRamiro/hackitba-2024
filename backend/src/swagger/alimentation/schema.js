@@ -6,6 +6,10 @@ export default {
 			format: "int64",
 			example: 1283198231782,
 		},
+		date: {
+			type: "string",
+			format: "date",
+		},
 		mealsAmount: {
 			type: "integer",
 			description: "How many times a day the user ate",
@@ -17,10 +21,6 @@ export default {
 			description: "How did the user feel about it's ration size?",
 			example: "too much food",
 			enum: ["not enough food", "enough food", "too much food"],
-		},
-		date: {
-			type: "string",
-			format: "date",
 		},
 	},
 };
