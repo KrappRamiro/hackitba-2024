@@ -10,6 +10,10 @@ import alimentationTags from "./alimentation/tags";
 import sleepRoutes from "./sleep/routes";
 import sleepTags from "./sleep/tags";
 
+// sleep
+import workoutRoutes from "./workout/routes";
+import workoutTags from "./workout/tags";
+
 export default {
 	openapi: "3.0.0",
 	info: {
@@ -27,10 +31,12 @@ export default {
 		healthcheckTags,
 		alimentationTags,
 		sleepTags,
+		workoutTags,
 	},
 	paths: {
 		...healthcheckRoutes,
 		...alimentationRoutes,
 		...sleepRoutes,
+		...workoutRoutes,
 	},
 };
