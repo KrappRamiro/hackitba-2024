@@ -5,27 +5,17 @@ import {
 } from "react-router-dom";
 import Layout from "./Layout";
 import Home from "./pages/Home";
-import Suenio from "./pages/Suenio";
-import Ejercicio from "./pages/Ejercicio";
 import Social from "./pages/Social";
-import Nutricion from "./pages/Nutricion";
+import TrackersHome from "./pages/TrackersHome"; // Import the missing component
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: "/home",
     element: <Home />,
   },
   {
-    path: "/nutricion",
-    element: <Nutricion />,
-  },
-  {
-    path: "/suenio",
-    element: <Suenio />,
-  },
-  {
-    path: "/ejercicio",
-    element: <Ejercicio />,
+    path: "/",
+    element: <TrackersHome />, // Add the missing component
   },
   {
     path: "/social",
