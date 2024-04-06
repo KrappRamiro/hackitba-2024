@@ -3,11 +3,20 @@ import LluviaParaDormirIcon from "../assets/img/youtube-channel-icon/LluviaParaD
 import HealingYourSoul from "../assets/img/youtube-channel-icon/HealingSoul.jpg";
 import QuietRelaxation from "../assets/img/youtube-channel-icon/QuietRelaxation.jpg";
 import SlowTime from "../assets/img/youtube-channel-icon/SlowTime.jpg";
+import { useState } from "react";
+import SleepForm from "../components/Sleep/SleepForm";
+import SleepTracker from "../components/Sleep/SleepTracker";
+import ModalSleep from "../components/Sleep/ModalSleep";
 
 export default function Suenio() {
 	return (
 		<div className="p-4">
 			<h1 className="text-2xl font-bold mb-4">Sueño</h1>
+      <div>
+            <ModalSleep/>
+
+			<SleepTracker />
+		</div>
 			<div className="space-y-4">
 				<div className="bg-gray-800 p-4 rounded-lg">
 					<div className="flex items-center justify-center mb-4">
