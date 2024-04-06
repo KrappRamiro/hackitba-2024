@@ -1,9 +1,9 @@
 import { Router } from "express";
-import { addAlimentation, getAlimentationByUserId } from "../controllers/alimentation";
+import { addAlimentation, getAlimentationsByUserId } from "../controllers/alimentation";
 
 const router = Router();
 
 router.post("/", addAlimentation);
-router.get("/:userId", getAlimentationByUserId);
+router.get("/:userId", getAlimentationsByUserId);
 
 export default router;

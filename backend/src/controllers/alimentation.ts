@@ -11,10 +11,10 @@ export const addAlimentation = async (req: Request, res: Response) => {
 	}
 };
 
-export const getAlimentationByUserId = async (req: Request, res: Response) => {
+export const getAlimentationsByUserId = async (req: Request, res: Response) => {
 	try {
 		const { userId } = req.params;
-		const alimentationData = await alimentationModel.findOne({ userId });
+		const alimentationData = await alimentationModel.find({ userId });
 		if (alimentationData) {
 			res.status(200).json(alimentationData);
 		} else {

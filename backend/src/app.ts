@@ -12,7 +12,7 @@ import pkgJson from "../package.json";
 import swaggerDoc from "./swagger/openapi.js";
 import mongoose from "mongoose";
 
-mongoose.connect("mongodb://localhost:27017/test");
+mongoose.connect("mongodb://mongodb:27017/test");
 const database = mongoose.connection;
 
 database.on("error", (error: any) => {

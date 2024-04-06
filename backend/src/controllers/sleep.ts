@@ -11,10 +11,10 @@ export const addSleep = async (req: Request, res: Response) => {
 	}
 };
 
-export const getSleepByUserId = async (req: Request, res: Response) => {
+export const getSleepsByUserId = async (req: Request, res: Response) => {
 	try {
 		const { userId } = req.params;
-		const sleepData = await sleepModel.findOne({ userId });
+		const sleepData = await sleepModel.find({ userId });
 		if (sleepData) {
 			res.status(200).json(sleepData);
 		} else {

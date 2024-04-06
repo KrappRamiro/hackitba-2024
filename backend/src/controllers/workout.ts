@@ -11,10 +11,10 @@ export const addWorkout = async (req: Request, res: Response) => {
 	}
 };
 
-export const getWorkoutByUserId = async (req: Request, res: Response) => {
+export const getWorkoutsByUserId = async (req: Request, res: Response) => {
 	try {
 		const { userId } = req.params;
-		const workoutData = await workoutModel.findOne({ userId });
+		const workoutData = await workoutModel.find({ userId });
 		if (workoutData) {
 			res.status(200).json(workoutData);
 		} else {

@@ -11,6 +11,8 @@ Content-Type: application/json
 }
 
 ### Get the alimentations from a user
+GET http://localhost:3000/alimentations/609d91d9e2d6d41768a092d8
+
 
 ### Add sleep
 POST http://localhost:3000/sleeps
@@ -24,6 +26,10 @@ Content-Type: application/json
     "userFeelsDisorder": false
 }
 
+### Get the sleeps from a user
+GET http://localhost:3000/sleeps/609d91d9e2d6d41768a092d8
+
+
 ### Add workout
 POST http://localhost:3000/workouts
 Content-Type: application/json
@@ -32,9 +38,11 @@ Content-Type: application/json
     "userId": "609d91d9e2d6d41768a092d8",
     "date": "2024-04-06",
     "exercises": {
-        "type": {
-            "walking": "a lot",
-            "stretching": "a bit"
-        }
+        "running": "5 miles",
+        "yoga": "30 minutes",
+        "weightlifting": "3 sets of squats"
     }
 }
+
+### Get the workouts from a user
+GET http://localhost:3000/workouts/609d91d9e2d6d41768a092d8

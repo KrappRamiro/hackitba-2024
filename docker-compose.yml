@@ -8,6 +8,8 @@ services:
   express:
     image: hackitba-2024-backend
     container_name: backend
+    links:
+      - mongodb
 
     build:
       context: ./backend

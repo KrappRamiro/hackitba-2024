@@ -1,18 +1,12 @@
 import mongoose, { Document, Schema, Types } from "mongoose";
 
-interface Exercise {
-	walking: string;
-	stretching: string;
-	gym: string;
-}
-
-interface DailyActivity extends Document {
+interface Workout extends Document {
 	userId: Types.ObjectId;
 	date: Date;
-	exercises: Exercise;
+	exercises: Record<string, string>;
 }
 
-const dailyActivitySchema: Schema<DailyActivity> = new Schema({
+const workoutSchema: Schema<Workout> = new Schema({
 	userId: {
 		type: Schema.Types.ObjectId,
 		required: true,
@@ -22,15 +16,12 @@ const dailyActivitySchema: Schema<DailyActivity> = new Schema({
 		required: true,
 	},
 	exercises: {
-		type: {
-			walking: { type: String },
-			stretching: { type: String },
-			gym: { type: String },
-		},
+		type: Map,
+		of: String,
 		required: true,
 	},
 });
 
-const DailyActivityModel = mongoose.model<DailyActivity>("DailyActivity", dailyActivitySchema);
+const WorkoutModel = mongoose.model<Workout>("Workout", workoutSchema);
 
-export default DailyActivityModel;
+export default WorkoutModel;
