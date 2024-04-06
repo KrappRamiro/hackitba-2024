@@ -46,3 +46,41 @@ Content-Type: application/json
 
 ### Get the workouts from a user
 GET http://localhost:3000/workouts/609d91d9e2d6d41768a092d8
+
+
+### Add a user
+POST http://localhost:3000/users
+Content-Type: application/json
+
+{
+    "username": "dantezulli",
+    "email": "dantezulli@email.com",
+    "password": "1234"
+}
+
+### Add a user
+POST http://localhost:3000/users
+Content-Type: application/json
+
+{
+    "username": "dantezulli",
+    "email": "dantezulli@email.com",
+    "password": "1234"
+}
+
+### Add another user
+POST http://localhost:3000/users
+Content-Type: application/json
+
+{
+    "username": "ramirokrapp",
+    "email": "krappramii@email.com",
+    "password": "1asadndsankas"
+}
+
+### Get all users
+GET http://localhost:3000/users
+
+### Get a user
+GET http://localhost:3000/users/66112446dd4a6e87045ba6b5
+

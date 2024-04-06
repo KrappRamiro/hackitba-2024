@@ -6,6 +6,7 @@ import { corsMiddleware } from "./middlewares/cors";
 import alimentationRouter from "./routes/alimentation";
 import sleepRouter from "./routes/sleep";
 import workoutRouter from "./routes/workout";
+import userRouter from "./routes/user";
 
 import swaggerUi from "swagger-ui-express";
 import pkgJson from "../package.json";
@@ -43,5 +44,6 @@ app.use("/docs", swaggerUi.serve, swaggerUi.setup(swaggerDoc));
 app.use("/alimentations/", alimentationRouter);
 app.use("/sleeps/", sleepRouter);
 app.use("/workouts/", workoutRouter);
+app.use("/users/", userRouter);
 
 export default app;
