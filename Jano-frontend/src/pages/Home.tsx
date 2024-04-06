@@ -14,24 +14,46 @@ export default function Home() {
 
 			updatedConversation.push({ user: "You", text: message });
 
-			const randomResponse = getRandomResponse();
+			getOpenAITextGeneration(message)
+				.then((chatbotResponse) => {
+					// Once the response is available, update the conversation
+					console.warn(chatbotResponse);
 
-			updatedConversation.push({ user: "AI", text: randomResponse });
-
-			setConversation(updatedConversation);
-
-			setMessage("");
+					updatedConversation.push({ user: "AI", text: chatbotResponse });
+					setConversation(updatedConversation);
+					setMessage("");
+				})
+				.catch((error) => {
+					// Handle any errors that occur during the request
+					console.error("Error:", error);
+				});
 		}
 	};
 
-	const getRandomResponse = () => {
-		const responses = [
-			"Entendido. ¿Hay algo más en lo que pueda ayudarte?",
-			"¡Claro! ¿Qué más necesitas?",
-			"Hmm, eso es interesante. Permíteme buscar más información al respecto.",
-		];
-		const randomIndex = Math.floor(Math.random() * responses.length);
-		return responses[randomIndex];
+	const getOpenAITextGeneration = async (userQuestion: string): Promise<string> => {
+		try {
+			const url = "http://localhost:3000/chatbot/ask";
+			const data = {
+				message: userQuestion,
+			};
+			const response = await fetch(url, {
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json",
+				},
+				body: JSON.stringify(data),
+			});
+
+			if (!response.ok) {
+				throw new Error("Network response was not ok");
+			}
+
+			const jsonResponse = await response.json();
+			return jsonResponse.message.content; // Assuming jsonResponse.message.content is a string
+		} catch (error) {
+			console.error("Error:", error);
+			throw error; // Rethrow the error to be handled by the caller
+		}
 	};
 
 	const handleKeyDown = (event) => {
