@@ -58,16 +58,6 @@ Content-Type: application/json
     "password": "1234"
 }
 
-### Add a user
-POST http://localhost:3000/users
-Content-Type: application/json
-
-{
-    "username": "dantezulli",
-    "email": "dantezulli@email.com",
-    "password": "1234"
-}
-
 ### Add another user
 POST http://localhost:3000/users
 Content-Type: application/json
@@ -84,3 +74,30 @@ GET http://localhost:3000/users
 ### Get a user
 GET http://localhost:3000/users/66112446dd4a6e87045ba6b5
 
+### Add a forum
+POST http://localhost:3000/forums
+Content-Type: application/json
+
+{
+    "title": "Sample Forum Title",
+    "description": "Description of the forum",
+    "topic": "Sample Topic",
+    "tags": ["tag1", "tag2", "tag3"],
+    "comments": [
+        {
+            "user": "username1",
+            "content": "Comment content 1"
+        },
+        {
+            "user": "username2",
+            "content": "Comment content 2"
+        }
+    ]
+}
+
+
+### Get all forums
+GET http://localhost:3000/forums
+
+### Get a forum
+GET http://localhost:3000/forums/66112820fe58eff5dbc519ea

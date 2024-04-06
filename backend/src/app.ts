@@ -7,6 +7,7 @@ import alimentationRouter from "./routes/alimentation";
 import sleepRouter from "./routes/sleep";
 import workoutRouter from "./routes/workout";
 import userRouter from "./routes/user";
+import forumRouter from "./routes/forum";
 
 import swaggerUi from "swagger-ui-express";
 import pkgJson from "../package.json";
@@ -45,5 +46,6 @@ app.use("/alimentations/", alimentationRouter);
 app.use("/sleeps/", sleepRouter);
 app.use("/workouts/", workoutRouter);
 app.use("/users/", userRouter);
+app.use("/forums/", forumRouter);
 
 export default app;
