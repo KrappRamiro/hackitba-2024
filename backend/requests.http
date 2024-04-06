@@ -1,0 +1,40 @@
+
+### Add alimentation
+POST http://localhost:3000/alimentations
+Content-Type: application/json
+
+{
+    "userId": "609d91d9e2d6d41768a092d8",
+    "date": "2024-04-06",
+    "mealsAmount": 3,
+    "foodAmountFeeling": "not enough food"
+}
+
+### Get the alimentations from a user
+
+### Add sleep
+POST http://localhost:3000/sleeps
+Content-Type: application/json
+
+{
+    "userId": "609d91d9e2d6d41768a092d8",
+    "date": "2024-04-06",
+    "dailySleepHours": 6,
+    "interruptionLevel": "a few times",
+    "userFeelsDisorder": false
+}
+
+### Add workout
+POST http://localhost:3000/workouts
+Content-Type: application/json
+
+{
+    "userId": "609d91d9e2d6d41768a092d8",
+    "date": "2024-04-06",
+    "exercises": {
+        "type": {
+            "walking": "a lot",
+            "stretching": "a bit"
+        }
+    }
+}

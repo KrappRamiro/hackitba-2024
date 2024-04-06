@@ -4,13 +4,15 @@ import dotenv from "dotenv";
 import { corsMiddleware } from "./middlewares/cors";
 // Import routers
 import alimentationRouter from "./routes/alimentation";
+import sleepRouter from "./routes/sleep";
+import workoutRouter from "./routes/workout";
 
 import swaggerUi from "swagger-ui-express";
 import pkgJson from "../package.json";
 import swaggerDoc from "./swagger/openapi.js";
 import mongoose from "mongoose";
 
-mongoose.connect("mongodb://localhost:27017/hackitba-2024");
+mongoose.connect("mongodb://localhost:27017/test");
 const database = mongoose.connection;
 
 database.on("error", (error: any) => {
@@ -39,5 +41,7 @@ app.use("/docs", swaggerUi.serve, swaggerUi.setup(swaggerDoc));
 //* ------------- Endpoints ------------------ //
 
 app.use("/alimentations/", alimentationRouter);
+app.use("/sleeps/", sleepRouter);
+app.use("/workouts/", workoutRouter);
 
 export default app;
