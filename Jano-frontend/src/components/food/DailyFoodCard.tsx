@@ -1,6 +1,6 @@
 import DailyFoodUpload from "./DailyFoodUpload";
 
-export default function DailyFoodCard({ foodInfo }: any) {
+export default function DailyFoodCard({ foodInfo, onSelection }: any) {
     
     // Destructure foodInfo object
     const { uploadConfigs, headerText } = foodInfo;
@@ -23,6 +23,7 @@ export default function DailyFoodCard({ foodInfo }: any) {
                     </div>
                 </div>
             </div>
+            
         </div>
     )
 }
