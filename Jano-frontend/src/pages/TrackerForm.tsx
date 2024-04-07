@@ -1,86 +1,67 @@
-import { useState } from "react";
-import { useFormik } from "formik";
-import * as Yup from "yup";
-import { Box, Stepper, Step, StepLabel, Grid, FormHelperText, Button } from "@mui/material";
+import {  useState } from "react";
+import { redirect } from "react-router-dom";
 
-import CategoryForm from "../components/form/CategoryForm";
-import FrecuencyForm from "../components/form/FrecuencyForm";
-import GoalForm from "../components/form/GoalForm";
+export default function TrackerForm() {
+	const [metricName, setNombreMetrica] = useState('');
+	const [centralName, setNombreCentral] = useState('');
+	const [numeroObjetivo, setNumeroObjetivo] = useState(0);
 
-const steps = [" Categoria", "Frecuencia", "Objetivo"];
-
-const TrackerForm = () => {
-	const [activeStep, setActiveStep] = useState(0);
-
-	const handleBack = () => {
-		setActiveStep((prevStep) => prevStep - 1);
-	};
-	const handleSubmit = (e: React.ChangeEvent<any>) => {
-		formik.handleChange(e);
-		console.log(formik.values);
-	};
-
-	const formik = useFormik({
-		initialValues: {
-			categoria: "entrenamiento",
-			frecuencia: "diario",
-			objetivo: 1,
-		},
-		onSubmit: () => {
-			if (activeStep === steps.length - 1) {
-				console.log("last step");
-			} else {
-				setActiveStep((prevStep) => prevStep + 1);
-			}
-		},
-	});
-
-	const formContent = (step: number) => {
-		switch (step) {
-			case 0:
-				return <CategoryForm formik={formik} />;
-			case 1:
-				return <FrecuencyForm formik={formik} />;
-			case 2:
-				return <GoalForm formik={formik} />;
-			default:
-				return <div>404: Not Found</div>;
-		}
+	const handlerSubmit = (e: { preventDefault: () => void; }) => {
+		e.preventDefault();
+		const newData = {
+			metricName,
+			centralName,
+			numeroObjetivo
+		};
+		
+		redirect('/home');
 	};
 
 	return (
-		<Box
-			sx={{
-				maxWidth: "600px",
-				padding: 2,
-				maxHeight: "100%",
-			}}
-		>
-			<Stepper activeStep={activeStep} orientation="horizontal">
-				{steps.map((label, index) => (
-					<Step key={index}>
-						<StepLabel className="">{label}</StepLabel>
-					</Step>
-				))}
-			</Stepper>
-			<Grid container>
-				<Grid item xs={12} sx={{ padding: "20px" }}>
-					{formContent(activeStep)}
-				</Grid>
-				{formik.errors && (
-					<Grid item xs={12}>
-						<FormHelperText error>{/* {formik.errors} */}</FormHelperText>
-					</Grid>
-				)}
-				<Grid item xs={12}>
-					<Button disabled={activeStep === 0} onClick={handleBack}>
-						Back
-					</Button>
-					{activeStep === steps.length - 1 ? <Button>Submit</Button> : <Button onClick={handleSubmit}>Next</Button>}
-				</Grid>
-			</Grid>
-		</Box>
+		<div className="">
+			<form onSubmit={handlerSubmit} className="shadow-md rounded px-8 pt-6 pb-8 mb-4">
+				<fieldset>
+					<legend className="text-sm font-semibold leading-6 text-white">Crea tu nuevo tracker</legend>
+					<div className="mb-6">
+						<label className="block text-gray-700 text-sm font-bold mb-2">Nombre de la metrica</label>
+						<input
+							className="shadow appearance-none border rounded w-full py-2 px-3 text-white mb-3 leading-tight focus:outline-none focus:shadow-outline"
+							id="text"
+							type="text"
+							placeholder="Horas de sueño"
+							onChange={e => setNombreMetrica(e.target.value)}
+						/>
+					</div>
+					<div className="mb-6">
+						<label className="block text-gray-700 text-sm font-bold mb-2">Nombre central</label>
+						<input
+							className="shadow appearance-none border rounded w-full py-2 px-3 text-white mb-3 leading-tight focus:outline-none focus:shadow-outline"
+							id="text"
+							type="text"
+							placeholder="Nombre central "
+							onChange={e => setNombreCentral(e.target.value)}
+						/>
+					</div>
+					<div className="mb-6">
+						<label className="block text-gray-700 text-sm font-bold mb-2">Objetivo</label>
+						<input
+							className="shadow appearance-none border rounded w-full py-2 px-3 text-white mb-3 leading-tight focus:outline-none focus:shadow-outline"
+							id="number"
+							type="number"
+							placeholder="1"
+							onChange={e => setNumeroObjetivo(Number(e.target.value))}
+						/>
+					</div>
+					<div className="flex items-center justify-between">
+						<button
+							className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+							type="submit"
+						>
+							Crear
+						</button>
+					</div>
+				</fieldset>
+			</form>
+		</div>
 	);
-};
-
-export default TrackerForm;
+}

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import {  useEffect, useState } from "react";
 import TrackerModule from "../components/TrackerModule";
 import Forum from "../assets/img/cards/friends.jpg";
 import Sleep from "../assets/img/cards/my-bed-is-my-best-friend.jpg";
@@ -9,7 +9,9 @@ import { Link } from "react-router-dom";
 export default function TrackersHome() {
 	const [sleepTime, setSleepTime] = useState({ dailySleepHours: 0, interruptionLevel: "" });
 	const [exerciseTime, setExerciseTime] = useState({ exercises: { running: "", yoga: "", weightlifting: "" } });
+
 	const userId = "609d91d9e2d6d41768a092d8";
+	
 	useEffect(() => {
 		fetch(`http://localhost:3000/workouts/${userId}`)
 			.then((response) => response.json())
@@ -27,6 +29,7 @@ export default function TrackersHome() {
 			})
 			.catch((error) => console.error("Error:", error));
 	}, []);
+
 	const titlesSleep = {
 		Frecuencia: "Sueño de hoy",
 		Objectivo: "Objetivo",

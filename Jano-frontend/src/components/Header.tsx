@@ -1,29 +1,27 @@
 
 import { SVGProps } from 'react';
 import { JSX } from 'react/jsx-runtime';
-import HomeIcon from '@mui/icons-material/Home';
-
+import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
 export default function Header() {
   return (
     <div className="">
         <div className="grid grid-cols-3 h-12">
-          
           <a
-            className="flex flex-col items-center justify-center text-xs transition-colors duration-150 hover:text-gray-900"
+            className="flex flex-col items-center justify-center text-xs transition-colors duration-150  "
             href="/home"
           >
-            <HomeIcon className="w-6 h-6" />
+            <HomeOutlinedIcon className="w-6 h-6" />
             
           </a>
           <a
-            className="flex flex-col items-center justify-center text-2xl font-light transition-colors duration-150 hover:text-gray-900 rounded-full bg-gray-100 dark:bg-gray-800 dark:text-gray-100 overflow-visible"
+            className="flex flex-col items-center justify-center text-2xl font-light transition-colors duration-150 rounded-full bg-gray-100 dark:bg-gray-800 dark:text-gray-100 overflow-visible"
             href="/"
           >
             
             <MessagesSquareIcon className="w-6 h-6 " />
           </a>
           <a
-            className="flex flex-col items-center justify-center text-xs transition-colors duration-150 hover:text-gray-900"
+            className="flex flex-col items-center justify-center text-xs transition-colors duration-150"
             href="/social"
           >
             <UsersIcon className="w-6 h-6" />
