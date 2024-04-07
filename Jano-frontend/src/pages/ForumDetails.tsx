@@ -1,6 +1,6 @@
 import {environment} from "../../environment"
 import { useState, useEffect } from "react"
-import { IComment, IForum } from "./Forum"
+import { IForum } from "./Forum"
 import Person from '@mui/icons-material/Person';
 import { Link } from "react-router-dom";
 import ArrowBack from '@mui/icons-material/ArrowBackIosNew';
@@ -31,35 +31,35 @@ export default function ForumDetails() {
 
     return (
         <div className="mx-4">
-            <div className="max-w-sm rounded overflow-hidden shadow-lg h-60 flex flex-col justify-around">
+            <div className="max-w-sm rounded-lg overflow-hidden shadow-lg h-60 flex flex-col justify-start bg-gray-800 p-4 mt-4">
                 <div className="flex justify-between font-bold text-xl mb-2">
                     <h2>{detailedForum.title}</h2>
-                    <Link to={"/social"}>
+                    <Link to={"/foro"}>
                         <ArrowBack></ArrowBack>
                     </Link>
                 </div>
-                <p className="text-gray-600 text-base">
+                <p className="text-gray-300 text-base h-40">
                     {detailedForum.description}
                 </p>
                 <div className="flex justify-start gap-4">
                     {
                         detailedForum.tags.map((tag) => (
-                            <span className="inline-block bg-blue-500 rounded-full px-3 py-1 text-sm font-semibold text-white mr-2 mb-2">#{tag}</span>
+                            <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#{tag}</span>
                         )
                         )}
                 </div>
             </div>
-            <div className="flex flex-col justify-start">
-                <h2 className="font-bold text-xl my-8 shadow-lg py-4">Comentarios</h2>
+            <div className="flex flex-col justify-start gap-4">
+                <h2 className="font-bold text-xl my-4 shadow-lg">Comentarios</h2>
                 {
                     detailedForum.comments.map((comment, index) => (
-                        <div className="max-w-sm rounded overflow-hidden shadow-lg">
+                        <div className="max-w-sm bg-gray-800 rounded overflow-hidden shadow-lg">
                             <div className="px-6 py-4">
                                 <div className="flex justify-start gap-2">
                                     <Person></Person>
                                     <div className="font-bold text-sm mb-2">{comment.user}</div>
                                 </div>
-                                <p className="text-gray-600 text-base">
+                                <p className="text-sm font-semibold text-gray-300">
                                     {comment.content}
                                 </p>
                             </div>

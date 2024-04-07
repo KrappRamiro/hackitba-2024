@@ -44,7 +44,7 @@ export default function TrackersHome() {
 	return (
 		<>
 			<div className="flex flex-col justify-end">
-				<h1 className="text-2xl font-bold mb-4 flex justify-between items-center px-5 mt-5">
+				<h1 className="text-2xl font-bold mb-4 flex justify-between items-center px-5 mt-4">
 					<span>Hola Ari!</span>
 					<box-icon name="user-circle" size="lg" color="white"></box-icon>
 				</h1>

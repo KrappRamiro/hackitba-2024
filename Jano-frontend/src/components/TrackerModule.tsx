@@ -71,7 +71,7 @@ export default function TrackerModule({ title, value,titleValues }: TrackerModul
 														fontSize: "1.5rem",
 													},
 													path: {
-														stroke: "#3b82f6",
+														stroke: "#22c55e",
 													},
 													trail: {
 														stroke: "#4B5563",
@@ -97,7 +97,7 @@ export default function TrackerModule({ title, value,titleValues }: TrackerModul
 														fontSize: "1.5rem",
 													},
 													path: {
-														stroke: "#3b82f6",
+														stroke: "#22c55e",
 													},
 													trail: {
 														stroke: "#4B5563",
@@ -122,7 +122,7 @@ export default function TrackerModule({ title, value,titleValues }: TrackerModul
 															fontSize: "1.5rem",
 														},
 														path: {
-															stroke: "#3b82f6",
+															stroke: "#eab308",
 														},
 														trail: {
 															stroke: "#4B5563",

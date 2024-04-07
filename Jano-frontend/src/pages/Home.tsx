@@ -66,7 +66,7 @@ export default function Home() {
 
 	return (
 		<div className="flex flex-col justify-between h-full">
-			<h1 className="text-2xl font-bold mb-4 flex justify-between items-center px-5 mt-5">
+			<h1 className="text-2xl font-bold mb-4 flex justify-between items-center px-5 mt-4">
 				<span>Jano</span>
 				<img src={Jano} className="w-8 h-8" style={{ filter: 'invert(100%) sepia(0%) saturate(0%) hue-rotate(93deg) brightness(103%) contrast(103%)' }} />			</h1>{" "}
 			<div className="flex p-4 overflow-auto flex-col-reverse" style={{ maxWidth: "80vw", height: "80vh" }}>
