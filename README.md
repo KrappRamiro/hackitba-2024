@@ -33,8 +33,18 @@ En backend/src/environments/ añadir el archivo .env.production proovisto. Esto 
 <p>3. Ejecutar docker compose</p>
 
 ```
-Ejecutar docker compose up --build para levantar el proyecto
+Ejecutar docker compose up --build para levantar el backend
 ```
+
+<p>4. Levantar el frontend</p>
+
+```
+cd Jano-frontend/
+npm install
+npm run dev
+```
+
+<p>5. Abrir http://localhost:5173</p>
 
 <h2> Sobre el backend</h2>
 Se puede leer más información en [El readme de backend](backend/README.md)
