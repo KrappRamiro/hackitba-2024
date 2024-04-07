@@ -73,7 +73,7 @@ export default function AddForumForm({handleForumUpload}) {
                 <TagSelector handleTags={setTags}></TagSelector>
             </div>
             <div>
-                <button type="submit" disabled={isSubmitDisabled} className={`bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 focus:outline-none focus:bg-blue-600`}>Enviar</button>
+                <button type="submit" disabled={isSubmitDisabled} className={`bg-gray-300 text-gray-800 px-4 py-2 rounded hover:bg-blue-600 focus:outline-none focus:bg-blue-600`}>Enviar</button>
             </div>
         </form>
     </div>

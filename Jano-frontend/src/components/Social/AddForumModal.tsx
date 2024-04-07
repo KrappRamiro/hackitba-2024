@@ -1,6 +1,6 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
+import AddCircleIcon from "@mui/icons-material/AddCircle";
 import Modal from '@mui/material/Modal';
 import AddForumForm from './AddForumForm';
 
@@ -27,7 +27,7 @@ export default function AddForumModal({handleForumUpload}) {
     
     return (
         <div > 
-            <Button onClick={handleOpen}>Nuevo debate</Button>
+            <AddCircleIcon style={{ color: "#3b82f6" }} onClick={handleOpen} />
             <Modal
                 open={open}
                 className=""
