@@ -1,12 +1,13 @@
-import {environment} from "../../environment"
+import { environment } from "../../environment";
 import { useState } from "react";
+import Jano from "../assets/img/jano.svg";
 
 export default function Home() {
 	const [message, setMessage] = useState("");
 	const [conversation, setConversation] = useState<{ user: string; text: string }[]>([
 		{
 			user: "AI",
-			text: "Soy una IA, no tengo sentimientos, pero estoy funcionando como se espera. ¿En qué puedo ayudarte hoy?",
+			text: "Hola, soy Jano, tu acompañante en este camino <3. ¿En qué puedo ayudarte hoy?",
 		},
 	]);
 	const sendMessage = () => {
@@ -65,6 +66,9 @@ export default function Home() {
 
 	return (
 		<div className="flex flex-col justify-between h-full">
+			<h1 className="text-2xl font-bold mb-4 flex justify-between items-center px-5 mt-5">
+				<span>Jano</span>
+				<img src={Jano} className="w-8 h-8" style={{ filter: 'invert(100%) sepia(0%) saturate(0%) hue-rotate(93deg) brightness(103%) contrast(103%)' }} />			</h1>{" "}
 			<div className="flex p-4 overflow-auto flex-col-reverse" style={{ maxWidth: "80vw", height: "80vh" }}>
 				{conversation
 					.map((message, index) => (
@@ -80,7 +84,6 @@ export default function Home() {
 					))
 					.reverse()}{" "}
 			</div>
-
 			<div className="flex flex-col justify-end p-4">
 				<div className="flex ">
 					<input
