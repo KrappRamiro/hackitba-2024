@@ -31,17 +31,17 @@ export default function ForumDetails() {
 
     return (
         <div className="mx-4">
-            <div className="max-w-sm rounded-lg overflow-hidden shadow-lg h-60 flex flex-col justify-start bg-gray-800 p-4 mt-4">
+            <div className="max-w-sm rounded-lg overflow-hidden shadow-lg flex flex-col justify-start bg-gray-800 p-4 mt-4">
                 <div className="flex justify-between font-bold text-xl mb-2">
                     <h2>{detailedForum.title}</h2>
                     <Link to={"/foro"}>
                         <ArrowBack></ArrowBack>
                     </Link>
                 </div>
-                <p className="text-gray-300 text-base h-40">
+                <p className="text-gray-300 text-base">
                     {detailedForum.description}
                 </p>
-                <div className="flex justify-start gap-4">
+                <div className="flex justify-start gap-1 mt-4">
                     {
                         detailedForum.tags.map((tag) => (
                             <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#{tag}</span>
