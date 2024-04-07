@@ -3,17 +3,18 @@ import { CircularProgressbar } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 
 interface TrackerModuleProps {
-	tracker: Tracker;
-}
-
-interface Tracker {
-	userId: string;
-	date: string;
 	title: string;
-	fields: string[][];
+	value: any;
+	titleValues: any;
 }
 
-export default function TrackerModule({ tracker }: TrackerModuleProps) {
+const dictionary = {
+	"a few times": 1,
+	"several times": 2,
+	"many times": 3,
+  };
+
+export default function TrackerModule({ title, value,titleValues }: TrackerModuleProps) {
 	const circleStyle = {
 		width: "50px",
 		height: "50px",
@@ -24,7 +25,8 @@ export default function TrackerModule({ tracker }: TrackerModuleProps) {
 		alignItems: "center",
 		margin: "0 5px",
 	};
-
+	var interruptionLevel;
+	if (title === "Control del sueño") interruptionLevel = dictionary[value?.interruptionLevel as keyof typeof dictionary];
 	return (
 		<div className="w-full px-5">
 			<div className="flex flex-col rounded-xl">
@@ -32,15 +34,37 @@ export default function TrackerModule({ tracker }: TrackerModuleProps) {
 					<div className="flex justify-between ">
 						<div className="flex flex-col">
 							<div className="text-white font-bold mb-2">
-								<h2>{tracker.title}</h2>
+								<h2>{title}</h2>
 							</div>
 							<div className="flex">
-								{tracker.fields.map((field, index) => (
-									<div key={index} className="font-semibold text-gray flex flex-col mr-5">
+								<div className="font-semibold text-gray flex flex-col mr-5">
+									<div style={circleStyle}>
+										<CircularProgressbar
+											value={(parseInt(value?.dailySleepHours) * 100) / 8}
+											text={`${value?.dailySleepHours}/8 hs`}
+											styles={{
+												text: {
+													fill: "white",
+													fontSize: "1.5rem",
+												},
+												path: {
+													stroke: "#3b82f6",
+												},
+												trail: {
+													stroke: "#4B5563",
+												},
+											}}
+										/>
+									</div>
+									<span className="text-gray-300 font-light text-sm text-center">{titleValues.Frecuencia}</span>
+								</div>
+								{title === "Control del sueño" ? (
+								<div className="flex">
+									<div className="font-semibold text-gray flex flex-col mr-5">
 										<div style={circleStyle}>
 											<CircularProgressbar
-												value={parseInt(field[1]) * 100 / 8}
-												text={`${field[1]}/8 hs`}
+												value={(interruptionLevel ?? 0) * 33}
+												text={`${value?.interruptionLevel}`}
 												styles={{
 													text: {
 														fill: "white",
@@ -55,21 +79,75 @@ export default function TrackerModule({ tracker }: TrackerModuleProps) {
 												}}
 											/>
 										</div>
-										<span className="text-gray-300 font-light text-sm text-center">{field[0]}</span>
+										<span className="text-gray-300 font-light text-sm text-center">{titleValues.Objectivo}</span>
 									</div>
-								))}
-								<div className="font-semibold text-gray flex flex-col mr-5">
-									<div style={circleStyle}>
-										{/* Aquí puedes mantener el icono de agregar */}
-										<AddCircleIcon style={{ color: "#3b82f6" }} />
 									</div>
-									<span className="text-gray-300 font-light text-sm text-center">Agregar</span>
+									):
+										(
+
+								<div className="flex">
+									<div className="font-semibold text-gray flex flex-col mr-5">
+										<div style={circleStyle}>
+											<CircularProgressbar
+												value={50}
+												text={`${4}/8 hs`}
+												styles={{
+													text: {
+														fill: "white",
+														fontSize: "1.5rem",
+													},
+													path: {
+														stroke: "#3b82f6",
+													},
+													trail: {
+														stroke: "#4B5563",
+													},
+												}}
+											/>
+										</div>
+										<span className="text-gray-300 font-light text-sm text-center">{titleValues.Objectivo}</span>
+									</div>
+									</div>
+										)}
+									
+									<div className="flex">
+										<div className="font-semibold text-gray flex flex-col mr-5">
+											<div style={circleStyle}>
+												<CircularProgressbar
+													value={(5 * 100) / 8}
+													text={`${5}/8 hs`}
+													styles={{
+														text: {
+															fill: "white",
+															fontSize: "1.5rem",
+														},
+														path: {
+															stroke: "#3b82f6",
+														},
+														trail: {
+															stroke: "#4B5563",
+														},
+													}}
+												/>
+											</div>
+											<span className="text-gray-300 font-light text-sm text-center">{titleValues.Promedio}</span>
+										</div>
+										<div className="font-semibold text-gray flex flex-col mr-5">
+											<div style={circleStyle}>
+												{/* Aquí puedes mantener el icono de agregar */}
+												<a href="/form">
+													<AddCircleIcon style={{ color: "#3b82f6" }} />
+												</a>
+											</div>
+											<span className="text-gray-300 font-light text-sm text-center">Agregar</span>
+										</div>
+									</div>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-		</div>
+
 	);
 }
