@@ -6,8 +6,8 @@ import {
 import Layout from "./Layout";
 import Home from "./pages/Home";
 import Forums from "./pages/Forum";
-import Forum from "./pages/ForumDetails";
-import TrackersHome from "./pages/TrackersHome"; // Import the missing component
+import ForumDetails from "./pages/ForumDetails";
+import TrackersHome from "./pages/TrackersHome"; 
 import TrackerForm from "./pages/TrackerForm";
 import Sleep from "./pages/Sleep";
 import Alimentation from "./pages/Alimentation";
