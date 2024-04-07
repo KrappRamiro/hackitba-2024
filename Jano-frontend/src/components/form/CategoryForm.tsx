@@ -5,9 +5,7 @@ const CategoryForm = (props: { formik: any; }) => {
     const { formik } = props;
     const [value, setValue] = useState('');
 
-  const handleChange = (event: { target: { value: SetStateAction<string>; }; }) => {
-    setValue(event.target.value);
-  };
+
     return (
         <FormControl>
           <FormLabel id="demo-row-radio-buttons-group-label">Categoria</FormLabel>
@@ -15,8 +13,6 @@ const CategoryForm = (props: { formik: any; }) => {
             row
             aria-labelledby="demo-row-radio-buttons-group-label"
             name="categoria"
-            onChange={handleChange}
-            value={formik.values.categoria}
           >
             <FormControlLabel value="entrenamiento" control={<Radio />} label="entrenamiento" />
             <FormControlLabel value="descanso" control={<Radio />} label="descanso" />
