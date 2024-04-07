@@ -12,6 +12,7 @@ import TrackerForm from "./pages/TrackerForm";
 import Sleep from "./pages/Sleep";
 import Alimentation from "./pages/Alimentation";
 import Social from "./pages/Social";
+import EnergyVitality from "./pages/EnergyVitality";
 
 const router = createBrowserRouter([
   {
@@ -45,6 +46,10 @@ const router = createBrowserRouter([
   {
     path: "/social",
     element: <Social />,
+  },
+  {
+    path: "/energia-vitalidad",
+    element: <EnergyVitality />,
   },
 
 ]);

@@ -74,13 +74,15 @@ export default function TrackersHome() {
 						</Link>
 					</div>
 					<div className="w-1/2 pl-3 pr-1 mb-4">
-						<div className="max-w-sm rounded-2xl overflow-hidden shadow-lg  bg-gray-800">
-							<img className="w-full" src={Energy} />
-							<div className="px-6 py-4 min-h-44">
-								<div className="font-bold text-xl mb-2">Energía & Vitalidad</div>
-								<p className="text-gray-300 text-base">Potencia tu día con buenos hábitos.</p>
+						<Link to={`/energia-vitalidad`}>
+							<div className="max-w-sm rounded-2xl overflow-hidden shadow-lg  bg-gray-800">
+								<img className="w-full" src={Energy} />
+								<div className="px-6 py-4 min-h-44">
+									<div className="font-bold text-xl mb-2">Energía & Vitalidad</div>
+									<p className="text-gray-300 text-base">Potencia tu día con buenos hábitos.</p>
+								</div>
 							</div>
-						</div>
+						</Link>
 					</div>
 					<div className="w-1/2 pr-3 pl-1 mb-4">
 						<Link to={`/social`}>
