@@ -26,8 +26,8 @@ const SwiperComponent = ({ slides }: { slides: any[] }) => {
                     />
                     <p className="text-lg font-bold">{slide.title}</p>
                 </div>
-                <div>
-                    <p className='pl-4 text-xs'>
+                <div className='flex items-center'>
+                    <p className='pl-4 text-xs '>
                         {slide.description}
                     </p>
                 </div>

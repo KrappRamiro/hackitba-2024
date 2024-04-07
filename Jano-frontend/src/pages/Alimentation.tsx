@@ -5,7 +5,7 @@ export default function Alimentation() {
 	return (
 		<div className="p-4">
 			<div>
-				<h2 className="text-xl mb-3">Comer & sentir se bien</h2>
+				<h2 className="text-xl mb-3">Comer y sentirse bien</h2>
 				<SwiperComponent slides={slides} />
 			</div>
 			<div className="bg-gray-800 p-4 rounded-lg flex items-center justify-between">
@@ -14,17 +14,30 @@ export default function Alimentation() {
 					<div className="ml-2">
 						<h2 className="text-xl font-bold mb-2">Lectura nutritiva</h2>
 						<p className="text-sm font-semibold text-gray-300 mb-4">
-							Descubre la práctica de la meditación para calmar la mente y reducir el estrés. <br></br>
+							Aprende de los mejores como mejorar tu vida comiendo bien y rico <br></br>
 						</p>
 						<p className="text-sm text-gray-500">
 							{" "}
 							Canal Recomendado:{" "}
-							<a href="https://www.youtube.com/@GabrielaLitschi/videos" className="text-blue-500">
-								Gabriela Litschi{" "}
+							<a href="https://www.youtube.com/@DRLAROSA" className="text-blue-500">
+								Dr La Rosa{" "}
 							</a>
 						</p>
 					</div>
 				</div>
+			</div>
+			<div>
+				<h2 className="text-xl mt-4 mb-3">Dale play a tu proximo plato</h2>
+				
+				<iframe
+					width="100%"
+					height="250px"
+					src="https://www.youtube.com/watch?v=tMlpTggczQg"
+					title="YouTube video player"
+					frameBorder="0"
+					allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+					allowFullScreen
+				></iframe>
 			</div>
 		</div>
 	);
