@@ -36,7 +36,7 @@ En backend/src/environments/ añadir el archivo .env.production proovisto. Esto 
 Ejecutar docker compose up --build para levantar el backend
 ```
 
-<p>4. Levantar el frontend</p>
+<p>4. En otra terminal, levantar el frontend</p>
 
 ```
 cd Jano-frontend/
