@@ -1,72 +1,62 @@
 import {environment} from "../../environment"
-import { useState, useEffect } from "react"
-import { IComment, IForum } from "./Social"
-import Person from '@mui/icons-material/Person';
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import ArrowBack from '@mui/icons-material/ArrowBackIosNew';
-import { useParams } from "react-router-dom";
 
+export interface IComment {
+    user: string,
+    content: string
+}
+
+export interface IForum {
+    _id: string,
+    title: string,
+    description: string,
+    topic: string,
+    tags: Array<String>,
+    comments: Array<IComment>
+}
+
+const truncateText = (text: string, numberOfCharacters: number) => {
+    if (text.length <= numberOfCharacters) {
+        return text;
+    }
+    return text.substring(0,numberOfCharacters) + "...";
+}
 
 export default function Forum() {
-
-    const { forumId } = useParams();
-
-
-    const [detailedForum, setdetailedForum] = useState<IForum>({_id: "",
-        title: "",
-        description: "",
-        topic: "",
-        tags: [],
-        comments: []
-    });
+    const [forumList, setForumList] = useState<Array<IForum>>([]);
 
     useEffect(() => {
-        fetch(`${environment.backendUrl}/forums/${forumId}`)
+        fetch(`${environment.backendUrl}/forums`)
             .then((response) => response.json())
             .then((data) => {
-                setdetailedForum(data);
+                setForumList(data);
             })
             .catch((error) => console.error("Error:", error));
     }, []);
 
     return (
-        <div className="mx-4">
-            <div className="max-w-sm rounded overflow-hidden shadow-lg h-60 flex flex-col justify-around">
-                <div className="flex justify-between font-bold text-xl mb-2">
-                    <h2>{detailedForum.title}</h2>
-                    <Link to={"/social"}>
-                        <ArrowBack></ArrowBack>
-                    </Link>
-                </div>
-                <p className="text-gray-600 text-base">
-                    {detailedForum.description}
-                </p>
-                <div className="flex justify-start gap-4">
-                    {
-                        detailedForum.tags.map((tag) => (
-                            <span className="inline-block bg-blue-500 rounded-full px-3 py-1 text-sm font-semibold text-white mr-2 mb-2">#{tag}</span>
-                        )
-                        )}
-                </div>
-            </div>
-            <div className="flex flex-col justify-start">
-                <h2 className="font-bold text-xl my-8 shadow-lg py-4">Comentarios</h2>
+        <div>
+            <h1 className="font-bold text-xl m-4" >Foros</h1>
+            
+            <div className="flex flex-col justify-end">
                 {
-                    detailedForum.comments.map((comment, index) => (
-                        <div className="max-w-sm rounded overflow-hidden shadow-lg">
+                    forumList.map((forum, index) => (
+                        <Link to={`/foro/${forum._id}`}  key={forum._id} className="max-w-sm min-h-40 rounded overflow-hidden shadow-lg cursor-pointer hover:bg-gray-900 transition-colors">
                             <div className="px-6 py-4">
-                                <div className="flex justify-start gap-2">
-                                    <Person></Person>
-                                    <div className="font-bold text-sm mb-2">{comment.user}</div>
+                                <div className="flex justify-between font-bold mb-2">
+                                    <h2 className="text-lg">{truncateText(forum.title, 18)}</h2>
+                                    <h4 className="text-xs rounded-full p-2 bg-blue-500" >{forum.topic}</h4>
                                 </div>
                                 <p className="text-gray-600 text-base">
-                                    {comment.content}
+                                    {truncateText(forum.description, 150)}
                                 </p>
                             </div>
-                        </div>
-                    )
-                    )}
+                        </Link>
+                    ))
+                }
             </div>
         </div>
-    )
+    );
+
 }

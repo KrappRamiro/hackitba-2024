@@ -83,13 +83,15 @@ export default function TrackersHome() {
 						</div>
 					</div>
 					<div className="w-1/2 pr-3 pl-1 mb-4">
-						<div className="max-w-sm rounded-2xl overflow-hidden shadow-lg  bg-gray-800">
-							<img className="w-full" src={Forum} />
-							<div className="px-6 py-4 min-h-44">
-								<div className="font-bold text-xl mb-2">Social</div>
-								<p className="text-gray-300 text-base">Únete y comparte con personas afines en nuestra comunidad.</p>
+						<Link to={`/social`}>
+							<div className="max-w-sm rounded-2xl overflow-hidden shadow-lg  bg-gray-800">
+								<img className="w-full" src={Forum} />
+								<div className="px-6 py-4 min-h-44">
+									<div className="font-bold text-xl mb-2">Social</div>
+									<p className="text-gray-300 text-base">Únete y comparte con personas afines en nuestra comunidad.</p>
+								</div>
 							</div>
-						</div>
+						</Link>
 					</div>
 				</div>
 			</div>
