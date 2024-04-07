@@ -8,11 +8,6 @@ export default function TrackerForm() {
 
 	const handlerSubmit = (e: { preventDefault: () => void; }) => {
 		e.preventDefault();
-		const newData = {
-			metricName,
-			centralName,
-			numeroObjetivo
-		};
 		
 		redirect('/home');
 	};
