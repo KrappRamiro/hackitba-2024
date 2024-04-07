@@ -9,6 +9,8 @@ import Social from "./pages/Social";
 import Forum from "./pages/Forum";
 import TrackersHome from "./pages/TrackersHome"; // Import the missing component
 import TrackerForm from "./pages/TrackerForm";
+import Sleep from "./pages/Sleep";
+import Alimentation from "./pages/Alimentation";
 
 const router = createBrowserRouter([
   {
@@ -31,6 +33,15 @@ const router = createBrowserRouter([
     path: "/foro/:forumId",
     element: <Forum />,
   },
+  {
+    path: "/alimentacion",
+    element: <Alimentation />,
+  },
+  {
+    path: "/suenio",
+    element: <Sleep />,
+  },
+
 ]);
 
 export default function App() {
