@@ -1,6 +1,6 @@
 export const environment: IEnvironment={
     production: false,
-    backendUrl:"http://localhost:8080"
+    backendUrl:"http://localhost:3000"
 }
 
 interface IEnvironment{
