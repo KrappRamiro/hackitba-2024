@@ -2,6 +2,8 @@ import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css"; // Import Swiper styles
 import "./swiper.css";
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+
 const SwiperComponent = ({ slides }: { slides: any[] }) => {
 	return (
 		<Swiper
@@ -30,20 +32,23 @@ const SwiperComponent = ({ slides }: { slides: any[] }) => {
 						<div className="bg-gray-800 p-4 rounded-lg flex">
 							<div className="flex flex-col min-width">
 								<img
-									className="w-20 h-20 object-cover rounded-full shadow-lg"
+									className="w-120 h-120 object-cover rounded-full shadow-lg"
 									src={slide.imageUrl} // Replace with your image URL
 									alt={slide.title} // Provide alternative text for accessibility
 									onError={(event) => {
 										const img = event.target as HTMLImageElement; // Type assertion
 										img.style.display = "none"; // Hide broken images
 									}}
+									style={{ maxWidth: "150px" }} // Add max-width style
 								/>
 							</div>
-							<div className="items-center">
-								<p className="text-lg font-bold">{slide.title}</p>
+							<div className="pl-4 items-center">
+								<p className="text-xl font-bold mb-2">{slide.title}</p>
 								<p className="text-xs ">{slide.description}</p>
+								<a href={slide.link} className="text-gray-300 underline text-xs">
+									Ver más aquí.
+								</a>
 							</div>
-							{/* Image with fallback content */}
 						</div>
 					</SwiperSlide>
 				)
