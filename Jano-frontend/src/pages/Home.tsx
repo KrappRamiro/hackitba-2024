@@ -64,8 +64,8 @@ export default function Home() {
 	};
 
 	return (
-		<div className="flex flex-col justify-end">
-			<div className="flex p-4 overflow-auto flex-col-reverse" style={{ maxWidth: "80vw" }}>
+		<div className="flex flex-col justify-between h-full">
+			<div className="flex p-4 overflow-auto flex-col-reverse" style={{ maxWidth: "80vw", height: "80vh" }}>
 				{conversation
 					.map((message, index) => (
 						<div key={index} className={`flex ${message.user === "You" ? "justify-end" : "justify-start"} mb-2`}>
