@@ -32,7 +32,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/foro/:forumId",
-    element: <Forum />,
+    element: <ForumDetails />,
   },
   {
     path: "/alimentacion",

@@ -7,7 +7,7 @@ import ArrowBack from '@mui/icons-material/ArrowBackIosNew';
 import { useParams } from "react-router-dom";
 
 
-export default function Forum() {
+export default function ForumDetails() {
 
     const { forumId } = useParams();
 
