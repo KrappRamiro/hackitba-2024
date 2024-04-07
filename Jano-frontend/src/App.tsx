@@ -5,8 +5,8 @@ import {
 } from "react-router-dom";
 import Layout from "./Layout";
 import Home from "./pages/Home";
-import Social from "./pages/Social";
 import Forum from "./pages/Forum";
+import ForumDetails from "./pages/ForumDetails";
 import TrackersHome from "./pages/TrackersHome"; // Import the missing component
 import TrackerForm from "./pages/TrackerForm";
 import Sleep from "./pages/Sleep";
@@ -23,7 +23,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/social",
-    element: <Social />,
+    element: <Forum />,
   },
   {
     path:"/form",
@@ -31,7 +31,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/foro/:forumId",
-    element: <Forum />,
+    element: <ForumDetails />,
   },
   {
     path: "/alimentacion",
