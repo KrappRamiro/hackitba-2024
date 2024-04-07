@@ -1,6 +1,7 @@
 import {environment} from "../../environment"
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import AddForumModal from "../components/Social/AddForumModal";
 
 export interface IComment {
     user: string,
@@ -26,18 +27,33 @@ const truncateText = (text: string, numberOfCharacters: number) => {
 export default function Social() {
     const [forumList, setForumList] = useState<Array<IForum>>([]);
 
-    useEffect(() => {
+    const requestAllForums = () => {
         fetch(`${environment.backendUrl}/forums`)
-            .then((response) => response.json())
-            .then((data) => {
-                setForumList(data);
-            })
-            .catch((error) => console.error("Error:", error));
+                .then((response) => response.json())
+                .then((data) => {
+                    //console.log();                    
+                    data.reverse()
+                    setForumList(data);
+                })
+                .catch((error) => console.error("Error:", error));
+    }
+
+    useEffect(() => {
+        requestAllForums();
+        
     }, []);
+
+    const handleForumUpload= () => {
+        requestAllForums();
+    }
 
     return (
         <div>
-            <h1 className="font-bold text-xl m-4" >Social</h1>
+            <div className="flex justify-between font-bold text-xl m-4">
+                <h1 className="" >Social</h1>
+                <AddForumModal handleForumUpload={handleForumUpload}></AddForumModal>
+            </div>
+            
             
             <div className="flex flex-col justify-end">
                 {
