@@ -4,8 +4,9 @@ import MenuBookIcon from "@mui/icons-material/MenuBook";
 export default function Alimentation() {
 	return (
 		<div className="p-4">
+			<h1 className="text-2xl font-bold mb-4">Alimentación</h1>
 			<div>
-				<h2 className="text-xl mb-3">Comer y sentirse bien</h2>
+				<h2 className="text-sm font-semibold text-gray-300 mb-4">Cambia un poco tu dieta, mejora mucho tu vida. </h2>
 				<SwiperComponent slides={slides} />
 			</div>
 			<div className="bg-gray-800 p-4 rounded-lg flex items-center justify-between">
@@ -45,9 +46,9 @@ export default function Alimentation() {
 const slides = [
 	{
 		imageUrl: "src/assets/img/cetogenica.png",
-		title: "Cetogenica",
+		title: "Dieta Cetogénica",
 		description:
-			"Es un plan de alimentación bajo en carbohidratos y alto en grasas que induce al cuerpo a un estado de cetosis, donde quema grasa como fuente de energía principal en lugar de carbohidratos.",
+			"Baja en carbohidratos y alta en grasas que induce al cuerpo a un estado de cetosis, donde quema grasa como fuente de energía principal en lugar de carbohidratos.",
 	},
 	{
 		imageUrl: "src/assets/img/mediterra.png",
