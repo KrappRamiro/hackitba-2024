@@ -1,28 +1,56 @@
-# hackitba-2024
+<h1 align="center" id="title">Jano - HackIT/BA 2024</h1>
 
-Repositorio usado para la Hackaton organizada por el computing club de la ITBA en 2024
+<p id="description">Proyecto Jano presentado por el equipo "Es todo un tema viste" para el HackIT/BA 2024</p>
 
-## Como correr
+<div style="display:flex; gap: 5px; justify-content:center">
 
-Tener docker y docker compose instalado, correr
+<img alt="Static Badge" src="https://img.shields.io/badge/React-blue?style=for-the-badge&logo=react">
+
+<img src="https://img.shields.io/badge/Docker-darkblue?style=for-the-badge&amp;logo=docker" alt="shields">
+
+<img src="https://img.shields.io/badge/Node-20-green?style=for-the-badge&amp;logo=nodedotjs" alt="shields">
+
+<img alt="Static Badge" src="https://img.shields.io/badge/ExpressJS-grey?style=for-the-badge&logo=express">
+
+<img alt="Static Badge" src="https://img.shields.io/badge/MongoDB-grey?style=for-the-badge&logo=mongodb">
+
+</div>
+
+<h2>🛠️ Pasos de instlacion:</h2>
+
+<p>1. Instalar Docker</p>
 
 ```
-docker compose up --build
+Seguir la documentacion de https://docs.docker.com/engine/install/
 ```
 
-## FAQ
+<p>2. Añadir los archivos .env</p>
 
-### Como fue creado el asistente de openAI?
-
-El asistente fue creado con las siguientes instrucciones
-
-```js
-const completion = await openai.beta.assistants.create({
-	name: "JANO",
-	instructions:
-		"You are JANO, an emotional support bot designed to offer companionship, listen, and suggest activities to improve one’s mood. You use advanced natural language processing and sentiment analysis to understand messages and respond appropriately and empathetically. Your responses should always aim to uplift, offer solace, or suggest positive actions, taking into account the emotional state of the user. You can communicate in multiple languages, but you prioritize empathy and emotional support in your interactions. You are not a therapist, but a friend with insightful advice and comforting words. Remember to respect privacy and maintain a supportive tone in all conversations.",
-	model: "gpt-3.5-turbo",
-});
+```
+En backend/src/environments/ añadir el archivo .env.production proovisto. Esto permite la conexion con mongoDB y openAI
 ```
 
-Luego, desde la consola de openAI, se obtuvo el ID del asistente
+<p>3. Ejecutar docker compose</p>
+
+```
+Ejecutar docker compose up --build para levantar el proyecto
+```
+
+<h2> Sobre el backend</h2>
+Se puede leer más información en [El readme de backend](backend/README.md)
+
+Se levanta sobre el endpoint `/docs` la documentación en Swagger
+
+<h2>💻 Hecho con</h2>
+
+Tecnologías usadas en el proyecto:
+
+- Node
+- Express
+- MongoDB
+- React
+- Docker
+
+<h2>🛡️ Licencia:</h2>
+
+Este proyecto esta licensiado bajo la licencia MIT

@@ -63,11 +63,7 @@ flowchart TD
 
 ## Como son manejados los enviroments
 
-Dentro de src/enviroments/, hay archivos .env usados para development y producción. **Estos no contienen credenciales**, y definen cosas como
-
-- DATABASE_URL
-- DATABASE_NAME
-- PORT
+Dentro de src/enviroments/, hay archivos .env usados para development y producción.
 
 Los levanta src/app.ts usando dotenv. El ambiente que se setee depende de cross-env en los scripts de `package.json`:
 
@@ -78,5 +74,3 @@ Los levanta src/app.ts usando dotenv. El ambiente que se setee depende de cross-
 		"dev": "cross-env NODE_ENV=development tsx watch ./src/run-server.ts" // <-- Usa .env.development
 	},
 ```
-
-Para manejar credenciales y secrets, se deberian usar **los secrets de docker compose** https://docs.docker.com/compose/use-secrets/
