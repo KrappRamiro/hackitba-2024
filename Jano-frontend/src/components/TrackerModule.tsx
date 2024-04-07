@@ -1,5 +1,6 @@
-import React, { useState } from "react";
 import AddCircleIcon from "@mui/icons-material/AddCircle";
+import { CircularProgressbar } from "react-circular-progressbar";
+import "react-circular-progressbar/dist/styles.css";
 
 interface TrackerModuleProps {
 	tracker: Tracker;
@@ -13,35 +14,62 @@ interface Tracker {
 }
 
 export default function TrackerModule({ tracker }: TrackerModuleProps) {
+	const circleStyle = {
+		width: "50px",
+		height: "50px",
+		borderRadius: "50%",
+		display: "flex",
+		border: "2px solid #4B5563",
+		justifyContent: "center",
+		alignItems: "center",
+		margin: "0 5px",
+	};
+
 	return (
-		<>
-			<div className="w-full p-5">
-				<div className="flex flex-col rounded-xl">
-					<h2>{tracker.title}</h2>
-					<div className="border-2 border-black px-3 py-3 rounded-2xl bg-green-100 mb-8">
-						<div className="flex justify-between ">
-							<div className="flex flex-col">
-								<div className="text-black font-bold">{tracker?.fields[0][0]}</div>
-                <div className="flex">
-                  <div className="font-semibold text-gray flex flex-col mr-5">
-                    <span className="text-yellow-500 text-3xl">{tracker?.fields[0][1]}</span>
-                    <span className="text-gray-700 font-light text-sm">{tracker?.fields[0][0]}</span>
-                  </div>
-                  <div className="font-semibold text-gray flex flex-col mr-5">
-                    <span className="text-yellow-500 text-3xl">{tracker?.fields[1][1]}</span>
-                    <span className="text-gray-700 font-light text-sm">{tracker?.fields[1][0]}</span>
-                  </div>
-                  <div className="font-semibold text-gray flex flex-col">
-                    <span className="text-yellow-500 text-3xl">{tracker?.fields[2][1]}</span>
-                    <span className="text-gray-700 font-light text-sm">{tracker?.fields[2][0]}</span>
-                  </div>
-                </div>
+		<div className="w-full px-5">
+			<div className="flex flex-col rounded-xl">
+				<div className="px-3 py-3 rounded-2xl bg-gray-800 mb-4">
+					<div className="flex justify-between ">
+						<div className="flex flex-col">
+							<div className="text-white font-bold mb-2">
+								<h2>{tracker.title}</h2>
 							</div>
-							<AddCircleIcon className="text-lime-500 addIcon" />
+							<div className="flex">
+								{tracker.fields.map((field, index) => (
+									<div key={index} className="font-semibold text-gray flex flex-col mr-5">
+										<div style={circleStyle}>
+											<CircularProgressbar
+												value={parseInt(field[1]) * 100 / 8}
+												text={`${field[1]}/8 hs`}
+												styles={{
+													text: {
+														fill: "white",
+														fontSize: "1.5rem",
+													},
+													path: {
+														stroke: "#3b82f6",
+													},
+													trail: {
+														stroke: "#4B5563",
+													},
+												}}
+											/>
+										</div>
+										<span className="text-gray-300 font-light text-sm text-center">{field[0]}</span>
+									</div>
+								))}
+								<div className="font-semibold text-gray flex flex-col mr-5">
+									<div style={circleStyle}>
+										{/* Aquí puedes mantener el icono de agregar */}
+										<AddCircleIcon style={{ color: "#3b82f6" }} />
+									</div>
+									<span className="text-gray-300 font-light text-sm text-center">Agregar</span>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-		</>
+		</div>
 	);
 }
