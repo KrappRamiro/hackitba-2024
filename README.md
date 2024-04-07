@@ -39,6 +39,8 @@ Ejecutar docker compose up --build para levantar el proyecto
 <h2> Sobre el backend</h2>
 Se puede leer más información en [El readme de backend](backend/README.md)
 
+Se levanta sobre el endpoint `/docs` la documentación en Swagger
+
 <h2>💻 Hecho con</h2>
 
 Tecnologías usadas en el proyecto:
