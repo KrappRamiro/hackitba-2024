@@ -1,3 +1,4 @@
+import {environment} from "../../environment"
 import { useState } from "react";
 
 export default function Home() {
@@ -32,7 +33,7 @@ export default function Home() {
 
 	const getOpenAITextGeneration = async (userQuestion: string): Promise<string> => {
 		try {
-			const url = "http://localhost:3000/chatbot/ask";
+			const url = `${environment.backendUrl}/chatbot/ask`;
 			const data = {
 				message: userQuestion,
 			};
