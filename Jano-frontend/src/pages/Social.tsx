@@ -1,62 +1,69 @@
-import {environment} from "../../environment"
-import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-
-export interface IComment {
-    user: string,
-    content: string
-}
-
-export interface IForum {
-    _id: string,
-    title: string,
-    description: string,
-    topic: string,
-    tags: Array<String>,
-    comments: Array<IComment>
-}
-
-const truncateText = (text: string, numberOfCharacters: number) => {
-    if (text.length <= numberOfCharacters) {
-        return text;
-    }
-    return text.substring(0,numberOfCharacters) + "...";
-}
+import AquiEstoy from "../assets/img/aqui-estoy.png";
 
 export default function Social() {
-    const [forumList, setForumList] = useState<Array<IForum>>([]);
+	return (
+		<div className="p-4">
+			<h1 className="text-2xl font-bold mb-4">Social</h1>
+			<div className="space-y-4">
+				<div className="bg-gray-800 p-4 rounded-lg items-center">
+					<div>
+						<h2 className="text-xl font-bold mb-2">Foros</h2>
+						<p className="text-sm font-semibold text-gray-300 mb-4">
+							Encuentra comunidades en línea que te ofrecen apoyo y consejos para tu bienestar mental.
+						</p>
+						<div className="grid grid-cols-1 gap-4">
+							<a
+								href="https://clinicadeansiedad.com/foro-debate/"
+								className="bg-blue-500 rounded-lg p-4 flex items-center justify-between transition duration-300 transform hover:scale-105"
+							>
+								<p className="text-white text-lg font-semibold">Clinica de la Ansiedad</p>
+								<box-icon name="chevron-right" color="#fff" size="md"></box-icon>
+							</a>
+							<a
+								href="https://www.ocu.org/comunidad/salud-y-nutricion/dieta-vegetariana/conversacion/2895/bienvenido-al-foro-de-nuevas-tendencias-en-alimentacion"
+								className="bg-green-500 rounded-lg p-4 flex items-center justify-between transition duration-300 transform hover:scale-105"
+							>
+								<p className="text-white text-lg font-semibold">Org. de Consumidores y Usuarios - Alimentación</p>
+								<box-icon name="chevron-right" color="#fff" size="md"></box-icon>
+							</a>
+							<a
+								href="https://www.carenity.es/foro/depresion-258"
+								className="bg-yellow-500 rounded-lg p-4 flex items-center justify-between transition duration-300 transform hover:scale-105"
+							>
+								<p className="text-white text-lg font-semibold">Carenity - Foro de depresión</p>
+								<box-icon name="chevron-right" color="#fff" size="md"></box-icon>
+							</a>
+						</div>
+					</div>
+					<p className="text-gray-400 text-sm text-center mt-4">
+						Recomendamos los foros en línea listados anteriormente, pero es importante tener en cuenta que hay una
+						amplia variedad de comunidades disponibles. Siempre es bueno investigar y encontrar la que mejor se adapte a
+						tus necesidades, con la prudencia adecuada.
+					</p>
+				</div>
 
-    useEffect(() => {
-        fetch(`${environment.backendUrl}/forums`)
-            .then((response) => response.json())
-            .then((data) => {
-                setForumList(data);
-            })
-            .catch((error) => console.error("Error:", error));
-    }, []);
+				<div className="bg-gray-800 p-4 rounded-lg flex flex-col items-center justify-center">
+    {/* Logo redondeado a un círculo */}
+    <div className="mb-4 rounded-full overflow-hidden">
+        <img src={AquiEstoy} alt="Aquí estoy logo" className="w-24 h-24 mx-auto rounded-full" />
+    </div>
+    {/* Textos centrados */}
+    <div className="text-center">
+        <h2 className="text-xl font-bold mb-2">Aquí estoy Chat</h2>
+        <p className="text-sm font-semibold text-gray-300 mb-4">
+            Descubre una línea de chat disponible las 24 horas para brindarte apoyo en momentos de necesidad.
+        </p>
+        <a
+            href="https://aquiestoy.chat/"
+            className="text-white py-2 px-4 rounded-lg inline-block transition duration-300"
+            style={{ backgroundColor: '#00c8b2' }}
+        >
+            Visitar Aquí estoy Chat
+        </a>
+    </div>
+</div>
 
-    return (
-        <div>
-            <h1 className="font-bold text-xl m-4" >Social</h1>
-            
-            <div className="flex flex-col justify-end">
-                {
-                    forumList.map((forum, index) => (
-                        <Link to={`/foro/${forum._id}`}  key={forum._id} className="max-w-sm min-h-40 rounded overflow-hidden shadow-lg cursor-pointer hover:bg-gray-900 transition-colors">
-                            <div className="px-6 py-4">
-                                <div className="flex justify-between font-bold mb-2">
-                                    <h2 className="text-lg">{truncateText(forum.title, 18)}</h2>
-                                    <h4 className="text-xs rounded-full p-2 bg-blue-500" >{forum.topic}</h4>
-                                </div>
-                                <p className="text-gray-600 text-base">
-                                    {truncateText(forum.description, 150)}
-                                </p>
-                            </div>
-                        </Link>
-                    ))
-                }
-            </div>
-        </div>
-    );
-
+			</div>
+		</div>
+	);
 }

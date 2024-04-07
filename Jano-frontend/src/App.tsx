@@ -5,12 +5,13 @@ import {
 } from "react-router-dom";
 import Layout from "./Layout";
 import Home from "./pages/Home";
-import Social from "./pages/Social";
-import Forum from "./pages/Forum";
-import TrackersHome from "./pages/TrackersHome"; // Import the missing component
+import Forums from "./pages/Forum";
+import ForumDetails from "./pages/ForumDetails";
+import TrackersHome from "./pages/TrackersHome"; 
 import TrackerForm from "./pages/TrackerForm";
 import Sleep from "./pages/Sleep";
 import Alimentation from "./pages/Alimentation";
+import Social from "./pages/Social";
 
 const router = createBrowserRouter([
   {
@@ -22,8 +23,8 @@ const router = createBrowserRouter([
     element: <TrackersHome />, // Add the missing component
   },
   {
-    path: "/social",
-    element: <Social />,
+    path: "/foro",
+    element: <Forums />,
   },
   {
     path:"/form",
@@ -31,7 +32,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/foro/:forumId",
-    element: <Forum />,
+    element: <ForumDetails />,
   },
   {
     path: "/alimentacion",
@@ -40,6 +41,10 @@ const router = createBrowserRouter([
   {
     path: "/suenio",
     element: <Sleep />,
+  },
+  {
+    path: "/social",
+    element: <Social />,
   },
 
 ]);
