@@ -62,7 +62,7 @@ export default function Forum() {
                             <div className="px-6 py-4">
                                 <div className="flex justify-between font-bold mb-2">
                                     <h2 className="text-lg">{truncateText(forum.title, 18)}</h2>
-                                    <h4 className="text-xs rounded-full p-2 bg-blue-500" >{forum.topic}</h4>
+                                    <h4 className="text-xs rounded-full p-2 bg-blue-500" >{truncateText(forum.topic, 10)}</h4>
                                 </div>
                                 <p className="text-sm font-semibold text-gray-300 mb-4">
                                     {truncateText(forum.description, 150)}
